@@ -13,7 +13,8 @@
     "dev:ssr": "quasar dev -m ssr",
     "build": "quasar build",
     "build:pwa": "quasar build -m pwa",
-    "build:ssr": "quasar build -m ssr"
+    "build:ssr": "quasar build -m ssr",
+    "start": "node dist/ssr/index.js"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
