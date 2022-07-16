@@ -14,7 +14,7 @@
     "build": "quasar build",
     "build:pwa": "quasar build -m pwa",
     "build:ssr": "quasar build -m ssr",
-    "start": "npm run install && npm run build:ssr && node dist/ssr/index.js"
+    "start": "npm install && npm run build:ssr && node dist/ssr/index.js"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
