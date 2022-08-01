@@ -1,9 +1,8 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <h1 class="text-subtitle2">
+    <h1 class="text-h1 text-red-2">
       {{ get(entry, 'fields.title') }}
     </h1>
-    <!-- <div class="pre-line" v-html="get(entry, 'fields.body')" /> -->
     <div v-html="markdownToHtml" />
   </q-page>
 </template>
@@ -24,7 +23,6 @@ import { useMeta } from 'quasar';
 
 export default defineComponent({
   name: 'PostDetail',
-  // components: { ExampleComponent },
   preFetch({ store, currentRoute }) {
     return store.dispatch(
       GlobalActionType.GET_ENTRY_BY_ID,
