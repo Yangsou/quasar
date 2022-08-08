@@ -55,26 +55,76 @@
     </div>
     <div class="bg-light branding container">
       <div class="row items-center justify-between">
-        <div class="relative-position tw-">
-          <img class="branding__mockup" src="../../assets/Branding@2x.png" />
-          <p class="text-h2 absolute-bottom-right">01</p>
+        <div class="tw-w-1/2 tw-flex tw-justify-end">
+          <div class="tw-relative">
+            <img class="branding__mockup" src="../../assets/Branding@2x.png" />
+            <p class="text-h2 absolute-bottom-right">01</p>
+          </div>
         </div>
-        <div>
+        <div class="tw-w-1/2">
           <p class="text-h3">Branding</p>
-          <p class="text-dark">
+          <p class="text-dark tw-max-w-xl">
             Our job is to tell your brand story, create an authentic and
             memorable identity, and turn them into an interactive communications
             experience.
           </p>
         </div>
       </div>
+      <div
+        class="tw-flex tw-flex-row-reverse items-center justify-between with-pattern"
+      >
+        <div class="tw-w-1/2 tw-flex">
+          <div class="tw-relative">
+            <img class="branding__mockup" src="../../assets/Creative.png" />
+            <p class="text-h2 absolute-bottom-right">02</p>
+          </div>
+        </div>
+        <div class="tw-w-1/2 tw-justify-end">
+          <p class="text-h3">Creative</p>
+          <p class="text-dark tw-max-w-xl">
+            Creative design is one key of elements of your brand's journey.
+            Whether you need a logo, print design, digital graphic or persuasive
+            copywriting, We build a personality and consistent brand experiences
+            for your brand.
+          </p>
+        </div>
+      </div>
+      <div class="row items-center justify-between">
+        <div class="tw-w-1/2 tw-flex tw-justify-end">
+          <div class="tw-relative">
+            <img class="branding__mockup" src="../../assets/Digital.png" />
+            <p class="text-h2 absolute-bottom-right">03</p>
+          </div>
+        </div>
+        <div class="tw-w-1/2">
+          <p class="text-h3">Digital</p>
+          <p class="text-dark tw-max-w-xl">
+            When the simplifying the complex solutions we engage the target
+            audience and initiate participation, bringing traffic to your
+            website and increasing brand awareness.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white-500">
+      <div class="container tw-py-6">
+        <div class="tw-grid tw-grid-cols-4 tw-gap-2">
+          <div class="tw-col-span-2"><service-item /></div>
+          <div><service-item /></div>
+          <div><service-item /></div>
+          <div><service-item /></div>
+          <div><service-item /></div>
+          <div class="tw-col-span-2"><service-item /></div>
+          <div class="tw-col-span-2"><service-item /></div>
+          <div><service-item /></div>
+          <div><service-item /></div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 <style lang="scss" scoped>
-.bg-white-500 {
-  background-color: #fbf9f3;
-}
 .home {
   &__wrap-md {
     max-width: 490px;
@@ -93,12 +143,21 @@
 }
 .branding {
   &__mockup {
-    width: 300px;
+    width: 500px;
+  }
+  .with-pattern {
+    background: {
+      image: url(../../assets/Pattern@2x.png);
+      size: 500px;
+      repeat: no-repeat;
+      position: right;
+    }
   }
 }
 </style>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import ServiceItem from './ServiceItem.vue';
 
 export default defineComponent({
   name: 'HomeMain',
@@ -107,5 +166,6 @@ export default defineComponent({
       slide: ref('brand'),
     };
   },
+  components: { ServiceItem },
 });
 </script>

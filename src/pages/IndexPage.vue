@@ -1,5 +1,7 @@
 <template>
   <home-main />
+  <working-process />
+  <home-partner />
 </template>
 
 <script lang="ts">
@@ -10,11 +12,15 @@ import { useStore } from 'src/store';
 import { get } from 'lodash';
 import { GlobalActionType } from 'src/store/global/types';
 import HomeMainVue from 'src/components/Homepages/HomeMain.vue';
+import WorkingProcessVue from 'src/components/Homepages/WorkingProcess.vue';
+import HomePartnerVue from 'src/components/Homepages/HomePartner.vue';
 
 export default defineComponent({
   name: 'IndexPage',
   components: {
     'home-main': HomeMainVue,
+    'working-process': WorkingProcessVue,
+    'home-partner': HomePartnerVue,
   },
   preFetch({ store }) {
     return store.dispatch(GlobalActionType.GET_ENTRIES);
