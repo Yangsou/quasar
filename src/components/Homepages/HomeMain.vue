@@ -14,12 +14,12 @@
         name="brand"
         class="bg-secondary column no-wrap flex-center"
       >
-        <div class="row items-center justify-center">
+        <div class="items-center justify-center row">
           <img
             class="home-slide__logo-brand"
-            src="../../assets/Graphic@3x.png"
+            src="../../assets/imgs/Graphic@3x.png"
           />
-          <p class="text-h3 text-white">
+          <p class="text-white text-h3">
             Build Your Brand <br />
             Create Your Power
           </p>
@@ -29,12 +29,12 @@
         name="integrated"
         class="bg-primary column no-wrap flex-center"
       >
-        <div class="row items-center justify-center">
+        <div class="items-center justify-center row">
           <!-- <img
             class="home-slide__logo-brand"
-            src="../../assets/Graphic@3x.png"
+            src="../../assets/imgs/Graphic@3x.png"
           /> -->
-          <p class="text-h3 text-white">
+          <p class="text-white text-h3">
             We are 360° Integrated<br />
             Advertising Agency
           </p>
@@ -43,7 +43,7 @@
     </q-carousel>
     <div class="bg-white-500">
       <div class="home__wrap-md">
-        <p class="text-h2 text-center">Who We Are?</p>
+        <p class="text-center text-h2 text-svn">Who We Are?</p>
         <p class="text-dark">
           We are 360° integrated advertising agency providing a full-site of
           marketing solutions including branding strategy, creative collateral
@@ -53,17 +53,24 @@
         </p>
       </div>
     </div>
-    <div class="bg-light branding container">
-      <div class="row items-center justify-between">
+    <div class="container bg-light branding tw-mt-20 tw-pb-20">
+      <div class="items-center justify-between row">
         <div class="tw-w-1/2 tw-flex tw-justify-end">
-          <div class="tw-relative">
-            <img class="branding__mockup" src="../../assets/Branding@2x.png" />
-            <p class="text-h2 absolute-bottom-right">01</p>
+          <div class="tw-relative tw-pr-14">
+            <p
+              class="text-h1 tw-font-bold tw-absolute tw-right-0 tw-bottom-6 text-white-400"
+            >
+              01
+            </p>
+            <img
+              class="branding__mockup tw-z-10 tw-relative"
+              src="../../assets/imgs/Branding@2x.png"
+            />
           </div>
         </div>
         <div class="tw-w-1/2">
-          <p class="text-h3">Branding</p>
-          <p class="text-dark tw-max-w-xl">
+          <p class="tw-text-6xl text-svn text-primary tw-mb-0">Branding</p>
+          <p class="text-dark tw-max-w-md">
             Our job is to tell your brand story, create an authentic and
             memorable identity, and turn them into an interactive communications
             experience.
@@ -71,34 +78,50 @@
         </div>
       </div>
       <div
-        class="tw-flex tw-flex-row-reverse items-center justify-between with-pattern"
+        class="items-center justify-between tw-flex tw-flex-row-reverse with-pattern tw-mt-20"
       >
         <div class="tw-w-1/2 tw-flex">
-          <div class="tw-relative">
-            <img class="branding__mockup" src="../../assets/Creative.png" />
-            <p class="text-h2 absolute-bottom-right">02</p>
+          <div class="tw-relative tw-pl-16">
+            <p
+              class="text-h1 tw-font-bold tw-absolute tw--left-4 tw-bottom-16 text-white-400"
+            >
+              02
+            </p>
+            <img
+              class="branding__mockup tw-relative"
+              src="../../assets/imgs/Creative.png"
+            />
           </div>
         </div>
-        <div class="tw-w-1/2 tw-justify-end">
-          <p class="text-h3">Creative</p>
-          <p class="text-dark tw-max-w-xl">
-            Creative design is one key of elements of your brand's journey.
-            Whether you need a logo, print design, digital graphic or persuasive
-            copywriting, We build a personality and consistent brand experiences
-            for your brand.
-          </p>
+        <div class="tw-w-1/2 tw-flex tw-justify-end">
+          <div class="tw-max-w-md tw-pl-20">
+            <p class="tw-text-6xl text-svn text-primary tw-mb-0">Creative</p>
+            <p class="text-dark tw-max-w-md">
+              Creative design is one key of elements of your brand's journey.
+              Whether you need a logo, print design, digital graphic or
+              persuasive copywriting, We build a personality and consistent
+              brand experiences for your brand.
+            </p>
+          </div>
         </div>
       </div>
-      <div class="row items-center justify-between">
+      <div class="items-center justify-between row tw-mt-20">
         <div class="tw-w-1/2 tw-flex tw-justify-end">
-          <div class="tw-relative">
-            <img class="branding__mockup" src="../../assets/Digital.png" />
-            <p class="text-h2 absolute-bottom-right">03</p>
+          <div class="tw-relative tw-pr-16">
+            <p
+              class="text-h1 tw-font-bold tw-absolute tw-right-0 tw-bottom-16 text-white-400"
+            >
+              03
+            </p>
+            <img
+              class="branding__mockup tw-relative"
+              src="../../assets/imgs/Digital.png"
+            />
           </div>
         </div>
         <div class="tw-w-1/2">
-          <p class="text-h3">Digital</p>
-          <p class="text-dark tw-max-w-xl">
+          <p class="tw-text-6xl text-svn text-primary tw-mb-0">Digital</p>
+          <p class="text-dark tw-max-w-md">
             When the simplifying the complex solutions we engage the target
             audience and initiate participation, bringing traffic to your
             website and increasing brand awareness.
@@ -108,17 +131,15 @@
     </div>
 
     <div class="bg-white-500">
-      <div class="container tw-py-6">
-        <div class="tw-grid tw-grid-cols-4 tw-gap-2">
-          <div class="tw-col-span-2"><service-item /></div>
-          <div><service-item /></div>
-          <div><service-item /></div>
-          <div><service-item /></div>
-          <div><service-item /></div>
-          <div class="tw-col-span-2"><service-item /></div>
-          <div class="tw-col-span-2"><service-item /></div>
-          <div><service-item /></div>
-          <div><service-item /></div>
+      <div class="container tw-py-28">
+        <div class="tw-grid tw-grid-cols-4 tw-gap-4">
+          <div
+            v-for="(item, index) in services"
+            :key="item.title"
+            v-bind:class="{ 'tw-col-span-2': [0, 5, 6].includes(index) }"
+          >
+            <service-item :service="item" />
+          </div>
         </div>
       </div>
     </div>
@@ -143,11 +164,11 @@
 }
 .branding {
   &__mockup {
-    width: 500px;
+    width: 380px;
   }
   .with-pattern {
     background: {
-      image: url(../../assets/Pattern@2x.png);
+      image: url(../../assets/imgs/Pattern@2x.png);
       size: 500px;
       repeat: no-repeat;
       position: right;
@@ -162,8 +183,47 @@ import ServiceItem from './ServiceItem.vue';
 export default defineComponent({
   name: 'HomeMain',
   setup() {
+    const services = ref([
+      {
+        title: 'Brand Strategy',
+        description: 'Positioning',
+      },
+      {
+        title: 'Market Research',
+        description: 'Analysis',
+      },
+      {
+        title: 'Integrated Marketing Plans',
+      },
+      {
+        title: 'Collateral Design',
+        description: 'Video / Photography',
+      },
+      {
+        title: 'Advertising',
+        description: 'TV / Events / Tradeshows',
+      },
+      {
+        title: 'PR',
+        description: 'Articles',
+      },
+      {
+        title: 'Website Design',
+        description: 'Development',
+      },
+      {
+        title: 'Social Media',
+        description: 'Strategy Management',
+      },
+      {
+        title: 'Rich Media Advertising',
+        description: 'Banner Ads',
+      },
+    ]);
+
     return {
       slide: ref('brand'),
+      services: services.value,
     };
   },
   components: { ServiceItem },

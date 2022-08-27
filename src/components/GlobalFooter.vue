@@ -10,11 +10,11 @@
       <div class="tw-flex tw-justify-between tw-gap-x-6 tw-pb-10">
         <div class="tw-w-1/3" style="border-right: 1px solid #9c8b78">
           <router-link to="/">
-            <img src="../assets/Logo@2x.png" class="tw-h-12" />
+            <img src="../assets/imgs/Logo@2x.png" class="tw-h-12" />
           </router-link>
-          <div class="tw-pl-8 tw-relative">
+          <div class="tw-pl-8 tw-mt-4 tw-relative">
             <img
-              src="../assets/map-pin-line-duotone@2x.png"
+              src="../assets/imgs/map-pin-line-duotone@2x.png"
               class="tw-w-6 tw-h-6 tw-absolute tw-top-0 tw-left-0"
             />
             <p class="relative text-primary text-bold tw-mb-0">Head Office</p>
@@ -31,7 +31,7 @@
           </div>
           <div class="tw-pl-8 tw-mt-4 tw-relative">
             <img
-              src="../assets/phone-incoming-duotone@2x.png"
+              src="../assets/imgs/phone-incoming-duotone@2x.png"
               class="tw-w-6 tw-h-6 tw-absolute tw-top-0 tw-left-0"
             />
             <p class="text-primary text-bold tw-mb-0">Contact</p>
@@ -54,12 +54,15 @@
           <p class="text-white">Follow Us On</p>
           <router-link to="#">
             <img
-              src="../assets/Social/facebook-app-symbol@3x.png"
+              src="../assets/imgs/Social/facebook-app-symbol@3x.png"
               class="tw-w-6 tw-h-6"
             />
           </router-link>
           <router-link to="#" class="tw-ml-2">
-            <img src="../assets/Social/linkedin@3x.png" class="tw-w-6 tw-h-6" />
+            <img
+              src="../assets/imgs/Social/linkedin@3x.png"
+              class="tw-w-6 tw-h-6"
+            />
           </router-link>
         </div>
         <div class="tw-w-1/3">
@@ -120,7 +123,7 @@ export default defineComponent({
       { url: '/', label: 'Process' },
       { url: '/', label: 'Lion Sharing' },
       { url: '/', label: 'Partner' },
-      { url: '/', label: 'Contact Us' },
+      { url: '/about-us', label: 'Contact Us' },
     ]);
     const form = ref({
       name: '',

@@ -5,49 +5,49 @@
         <div class="tw-flex tw-items-center tw-justify-center">
           <img
             class="tw-h-32 tw-max-w-full"
-            src="../../assets/Partner/Assa@2x.png"
+            src="../../assets/imgs/Partner/Assa@2x.png"
           />
         </div>
         <div class="tw-flex tw-items-center tw-justify-center">
           <img
             class="tw-h-32 tw-max-w-full"
-            src="../../assets/Partner/Bosch@2x.png"
+            src="../../assets/imgs/Partner/Bosch@2x.png"
           />
         </div>
         <div class="tw-flex tw-items-center tw-justify-center">
           <img
             class="tw-h-32 tw-max-w-full"
-            src="../../assets/Partner/Highland@2x.png"
+            src="../../assets/imgs/Partner/Highland@2x.png"
           />
         </div>
         <div class="tw-flex tw-items-center tw-justify-center">
           <img
             class="tw-h-32 tw-max-w-full"
-            src="../../assets/Partner/L&L@2x.png"
+            src="../../assets/imgs/Partner/L&L@2x.png"
           />
         </div>
         <div class="tw-flex tw-items-center tw-justify-center">
           <img
             class="tw-h-32 tw-max-w-full"
-            src="../../assets/Partner/Masterise@2x.png"
+            src="../../assets/imgs/Partner/Masterise@2x.png"
           />
         </div>
         <div class="tw-flex tw-items-center tw-justify-center">
           <img
             class="tw-h-32 tw-max-w-full"
-            src="../../assets/Partner/Sunlife@2x.png"
+            src="../../assets/imgs/Partner/Sunlife@2x.png"
           />
         </div>
         <div class="tw-flex tw-items-center tw-justify-center">
           <img
             class="tw-h-32 tw-max-w-full"
-            src="../../assets/Partner/The-Grand@2x.png"
+            src="../../assets/imgs/Partner/The-Grand@2x.png"
           />
         </div>
         <div class="tw-flex tw-items-center tw-justify-center">
           <img
             class="tw-h-32 tw-max-w-full"
-            src="../../assets/Partner/Yale@2x.png"
+            src="../../assets/imgs/Partner/Yale@2x.png"
           />
         </div>
       </div>
@@ -61,11 +61,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'HomePartner',
   setup() {
-    return {
-      //
-    };
+    //
   },
 });
 </script>
-
-<style></style>

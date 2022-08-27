@@ -1,9 +1,21 @@
 // app global css in SCSS form
+@font-face {
+  font-family: SVN-Rockness;
+  src: url(./fonts/SVN-Rockness.otf);
+  // , url(./fonts/SVN-Rockness.url);
+}
 .container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1280px;
+  // max-width: 1440px;
   margin: auto;
 }
 .bg-white-500 {
   background-color: #fbf9f3;
+}
+.text-white-400 {
+  color: #f7f7f7;
+}
+.text-svn {
+  font-family: 'SVN-Rockness';
 }

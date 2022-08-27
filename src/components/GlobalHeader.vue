@@ -1,8 +1,8 @@
 <template>
   <div class="header full-width">
-    <div class="row justify-between items-center header__container">
+    <div class="items-center justify-between row header__container">
       <router-link to="/">
-        <img class="header__logo" src="../assets/Logo@3x.png" />
+        <img class="header__logo" src="../assets/imgs/Logo@3x.png" />
       </router-link>
       <div class="header__menu">
         <ul>
@@ -36,7 +36,7 @@
   z-index: 90;
   &__container {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1280px;
     margin: auto;
     border-bottom: 1px solid #ffffff;
     padding: 16px 16px 8px;

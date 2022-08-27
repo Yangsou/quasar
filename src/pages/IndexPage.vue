@@ -1,7 +1,9 @@
 <template>
-  <home-main />
-  <working-process />
-  <home-partner />
+  <main>
+    <home-main />
+    <working-process />
+    <home-partner />
+  </main>
 </template>
 
 <script lang="ts">
