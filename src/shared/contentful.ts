@@ -22,4 +22,7 @@ export const contentfulAPI = {
   getEntry: (entryId: string) => {
     return GetContentfulApp().getEntry(entryId);
   },
+  getAssetById: (id: string) => {
+    return GetContentfulApp().getAsset(id)
+  }
 };

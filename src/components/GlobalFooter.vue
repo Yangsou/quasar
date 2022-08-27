@@ -1,10 +1,10 @@
 <template>
   <footer class="bg-secondary tw-relative tw-mt-10 tw-pt-28">
     <div
-      class="text-white tw-absolute tw-top-0 tw-left-0 tw-transform tw--translate-y-1/2 bg-primary tw-text-center tw-text-3xl tw-rounded-lg tw-py-4 tw-w-1/2"
+      v-if="!!title"
+      class="text-white tw-absolute tw-top-0 tw-left-0 tw-transform tw--translate-y-1/2 bg-primary tw-text-center tw-text-3xl tw-rounded-lg tw-py-4 tw-w-1/2 tw-whitespace-pre-line"
     >
-      Let's make something <br />
-      amazing together
+      {{ title }}
     </div>
     <div class="container">
       <div class="tw-flex tw-justify-between tw-gap-x-6 tw-pb-10">
@@ -83,7 +83,7 @@
               outlined
               v-model="form.message"
             />
-            <q-btn size="lg" class="tw-w-full tw-mt-4" color="primary"
+            <q-btn size="lg" class="tw-w-full tw-mt-4 d-btn-secondary"
               >Send</q-btn
             >
           </q-form>
@@ -109,21 +109,24 @@
   text-decoration: none;
 }
 </style>
-<script>
-import { defineComponent, ref } from 'vue';
+<script lang="ts">
+import { defineComponent, ref, computed } from 'vue';
+import { useGlobalStore } from 'src/stores/global-store';
 
 export default defineComponent({
   name: 'GlobalFooter',
   setup() {
+    const globalStore = useGlobalStore();
     const links = ref([
       { url: '/', label: 'Homepage' },
       { url: '/lion-people', label: 'Lion People' },
       { url: '/', label: 'Service' },
       { url: '/', label: 'Lion Vision' },
       { url: '/', label: 'Process' },
-      { url: '/', label: 'Lion Sharing' },
+      { url: '/lion-sharing', label: 'Lion Sharing' },
       { url: '/', label: 'Partner' },
-      { url: '/about-us', label: 'Contact Us' },
+      { url: '/', label: 'Contact Us' },
+      { url: '/about-us', label: 'About Us' },
     ]);
     const form = ref({
       name: '',
@@ -131,6 +134,7 @@ export default defineComponent({
       message: '',
     });
     return {
+      title: computed(() => globalStore.footer.title),
       links,
       form,
     };

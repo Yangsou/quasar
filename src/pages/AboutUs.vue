@@ -170,9 +170,14 @@
 </style>
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useGlobalStore } from 'src/stores/global-store';
 
 export default defineComponent({
   name: 'about-us',
+  preFetch() {
+    const globalStore = useGlobalStore();
+    globalStore.footer.title = '';
+  },
   setup() {
     return {
       //

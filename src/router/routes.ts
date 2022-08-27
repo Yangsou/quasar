@@ -6,7 +6,8 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
-      { path: 'post/:postId', component: () => import('pages/PostDetail.vue') },
+      { path: 'lion-sharing', component: () => import('pages/Post.vue') },
+      { path: 'lion-sharing/:postId', component: () => import('pages/PostDetail.vue') },
       { path: 'about-us', component: () => import('pages/AboutUs.vue') },
       { path: 'lion-people', component: () => import('pages/People.vue') },
     ],

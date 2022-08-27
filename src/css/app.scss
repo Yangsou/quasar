@@ -19,3 +19,21 @@
 .text-svn {
   font-family: 'SVN-Rockness';
 }
+.d-btn-secondary {
+  background-color: #9c8b78;
+  color: #ffffff;
+  text-transform: initial;
+}
+
+@mixin text-multi-ellipsis($line, $line-height: 1.5, $font-size: 16px) {
+  overflow: hidden;
+  max-height: $line * $line-height * $font-size;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+.text-3-lines {
+  @include text-multi-ellipsis(3);
+}

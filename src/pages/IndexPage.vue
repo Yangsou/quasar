@@ -7,15 +7,12 @@
 </template>
 
 <script lang="ts">
-// import ExampleComponent from 'components/ExampleComponent.vue';
-import { defineComponent, computed } from 'vue';
-import { useStore } from 'src/store';
+import { defineComponent } from 'vue';
 // import { useMeta } from 'quasar';
-import { get } from 'lodash';
-import { GlobalActionType } from 'src/store/global/types';
 import HomeMainVue from 'src/components/Homepages/HomeMain.vue';
 import WorkingProcessVue from 'src/components/Homepages/WorkingProcess.vue';
 import HomePartnerVue from 'src/components/Homepages/HomePartner.vue';
+import { useGlobalStore } from 'src/stores/global-store';
 
 export default defineComponent({
   name: 'IndexPage',
@@ -24,18 +21,16 @@ export default defineComponent({
     'working-process': WorkingProcessVue,
     'home-partner': HomePartnerVue,
   },
-  preFetch({ store }) {
-    return store.dispatch(GlobalActionType.GET_ENTRIES);
+  preFetch({}) {
+    // return store.dispatch(GlobalActionType.GET_ENTRIES);
+    const globalStore = useGlobalStore();
+    globalStore.footer.title = "Let's make something \namazing together";
   },
   // mixins: [createMetaMixin(metaData)],
   setup() {
-    const store = useStore();
-    const entries = computed(() => store.state.global.entries);
-    // useMeta({
-    //   title: title.value,
-    //   meta: {},
-    // });
-    return { entries, get };
+    return {
+      title: '',
+    };
   },
 });
 </script>
