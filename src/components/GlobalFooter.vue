@@ -117,7 +117,7 @@ export default defineComponent({
   setup() {
     const links = ref([
       { url: '/', label: 'Homepage' },
-      { url: '/', label: 'Lion People' },
+      { url: '/lion-people', label: 'Lion People' },
       { url: '/', label: 'Service' },
       { url: '/', label: 'Lion Vision' },
       { url: '/', label: 'Process' },
