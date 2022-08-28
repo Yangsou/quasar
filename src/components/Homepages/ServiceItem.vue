@@ -1,7 +1,8 @@
 <template>
   <div class="service-item tw-relative tw-overflow-hidden">
+    <!-- src="../../assets/imgs/meeting.png" -->
     <img
-      src="../../assets/imgs/meeting.png"
+      :src="'/imgs/' + service.img"
       class="tw-w-full tw-h-full tw-object-cover"
     />
     <div
@@ -24,7 +25,11 @@ export default defineComponent({
   name: 'ServiceItem',
   props: {
     service: {
-      type: Object as PropType<{ title: string; description?: string }>,
+      type: Object as PropType<{
+        title: string;
+        description?: string;
+        img: string;
+      }>,
       required: true,
     },
   },

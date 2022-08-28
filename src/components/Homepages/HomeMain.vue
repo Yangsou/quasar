@@ -187,37 +187,46 @@ export default defineComponent({
       {
         title: 'Brand Strategy',
         description: 'Positioning',
+        img: 'service-brand.webp',
       },
       {
         title: 'Market Research',
         description: 'Analysis',
+        img: 'service-market.jpeg',
       },
       {
         title: 'Integrated Marketing Plans',
+        img: 'service-integrated.webp',
       },
       {
         title: 'Collateral Design',
         description: 'Video / Photography',
+        img: 'service-Collateral.jpeg',
       },
       {
         title: 'Advertising',
         description: 'TV / Events / Tradeshows',
+        img: 'service-advertising.jpeg',
       },
       {
         title: 'PR',
         description: 'Articles',
+        img: 'service-pr.jpeg',
       },
       {
         title: 'Website Design',
         description: 'Development',
+        img: 'service-development.webp',
       },
       {
         title: 'Social Media',
         description: 'Strategy Management',
+        img: 'service-social.jpeg',
       },
       {
         title: 'Rich Media Advertising',
         description: 'Banner Ads',
+        img: 'service-rich-media.jpeg',
       },
     ]);
 

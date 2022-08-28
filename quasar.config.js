@@ -137,8 +137,8 @@ module.exports = configure(function (ctx) {
       // chainWebpackCustomSW (/* chain */) {},
 
       manifest: {
-        name: 'Common App',
-        short_name: 'Common App',
+        name: 'Lion Team',
+        short_name: 'Lion',
         description: '',
         display: 'standalone',
         orientation: 'portrait',

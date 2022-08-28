@@ -1,8 +1,8 @@
 {
   "name": "common-project",
   "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "Common App",
+  "description": "Lion Team",
+  "productName": "Lion Team",
   "author": "trungnam",
   "private": true,
   "scripts": {
