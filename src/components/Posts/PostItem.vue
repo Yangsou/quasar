@@ -66,6 +66,9 @@ export default defineComponent({
     box-shadow: none;
     .post-item__content,
     .post-item__hero-img {
+      padding-left: 0;
+      padding-right: 0;
+      border-radius: 0;
       width: 100% !important;
     }
   }

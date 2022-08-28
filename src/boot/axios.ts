@@ -1,11 +1,11 @@
 import { boot } from 'quasar/wrappers';
-import axios, { AxiosInstance } from 'axios';
+import axios from 'axios';
 
-declare module '@vue/runtime-core' {
-  interface ComponentCustomProperties {
-    $axios: AxiosInstance;
-  }
-}
+// declare module '@vue/runtime-core' {
+//   interface ComponentCustomProperties {
+//     $axios: AxiosInstance;
+//   }
+// }
 
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;

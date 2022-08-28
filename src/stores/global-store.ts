@@ -2,10 +2,10 @@ import { defineStore } from 'pinia';
 
 export type GlobalStoreType = {
   footer: {
-    title: string,
-  },
+    title: string;
+  };
   imageCaches: Record<string, string>;
-}
+};
 
 export const useGlobalStore = defineStore('global', {
   state: (): GlobalStoreType => ({
@@ -13,6 +13,6 @@ export const useGlobalStore = defineStore('global', {
       // title: 'Let\'s make something \namazing together',
       title: '',
     },
-    imageCaches: {}
+    imageCaches: {},
   }),
 });

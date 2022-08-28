@@ -1,5 +1,5 @@
 <template>
-  <div id="working-process" class="working-process">
+  <div id="process" class="working-process">
     <div class="container tw-flex tw-items-center tw-py-32">
       <div
         class="tw-w-3/5 tw-justify-center tw-flex tw-items-center tw-flex-col"

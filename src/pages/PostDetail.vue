@@ -63,7 +63,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 import { get } from 'lodash';
-import { useRoute } from 'vue-router';
+import { RouteLocationNormalizedLoaded, useRoute } from 'vue-router';
 import { marked } from 'marked';
 import { useMeta } from 'quasar';
 import { usePostStore } from 'src/stores/post-store';
@@ -72,7 +72,7 @@ import PostItem from 'src/components/Posts/PostItem.vue';
 
 export default defineComponent({
   name: 'post-detail',
-  preFetch({ currentRoute }) {
+  preFetch({ currentRoute }: { currentRoute: RouteLocationNormalizedLoaded }) {
     const store = usePostStore();
     return store.getEntryById(currentRoute.params.postId as string);
   },

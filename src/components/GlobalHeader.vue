@@ -34,6 +34,14 @@
   left: 0;
   right: 0;
   z-index: 90;
+  transition: all 450ms;
+  &.active {
+    background-color: $secondary;
+    .header__container {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
   &__container {
     width: 100%;
     max-width: 1280px;
@@ -152,7 +160,8 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { doScrolling } from 'src/shared/functional';
+import { defineComponent, onMounted, onUnmounted, ref } from 'vue';
 import { HeaderLinkKey } from './models';
 
 export default defineComponent({
@@ -165,7 +174,34 @@ export default defineComponent({
 
     const moveToSection = (key: HeaderLinkKey) => {
       currentSection.value = key;
+      const el = document.getElementById(key);
+      if (el) {
+        doScrolling(el, 500, 100);
+      }
     };
+    function activeHeaderWhenScroll() {
+      var scrollTop =
+        window.pageYOffset !== undefined
+          ? window.pageYOffset
+          : (
+              document.documentElement ||
+              document.body.parentNode ||
+              document.body
+            ).scrollTop;
+      var header = document.getElementsByClassName('header')[0];
+      // console.log('scrollTop', scrollTop);
+      if (scrollTop > 196) {
+        header.classList.add('active');
+      } else {
+        header.classList.remove('active');
+      }
+    }
+    onMounted(() => {
+      window.addEventListener('scroll', activeHeaderWhenScroll);
+    });
+    onUnmounted(() => {
+      window.removeEventListener('scroll', activeHeaderWhenScroll);
+    });
     return {
       currentSection,
       links: [
@@ -173,7 +209,7 @@ export default defineComponent({
         { label: 'Service', key: HeaderLinkKey.Service },
         { label: 'Process', key: HeaderLinkKey.Process },
         { label: 'Partner', key: HeaderLinkKey.Partner },
-        { label: 'Contact Us', key: HeaderLinkKey.ContactUs },
+        { label: 'Contact Us', key: 'footer' },
       ],
       moveToSection,
     };

@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-secondary tw-relative tw-mt-10 tw-pt-28">
+  <footer id="footer" class="bg-secondary tw-relative tw-mt-10 tw-pt-28">
     <div
       v-if="!!title"
       class="text-white tw-absolute tw-top-0 tw-left-0 tw-transform tw--translate-y-1/2 bg-primary tw-text-center tw-text-3xl tw-rounded-lg tw-py-4 tw-w-1/2 tw-whitespace-pre-line"

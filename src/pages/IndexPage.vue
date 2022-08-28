@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onBeforeUnmount } from 'vue';
 // import { useMeta } from 'quasar';
 import HomeMainVue from 'src/components/Homepages/HomeMain.vue';
 import WorkingProcessVue from 'src/components/Homepages/WorkingProcess.vue';
@@ -28,6 +28,10 @@ export default defineComponent({
   },
   // mixins: [createMetaMixin(metaData)],
   setup() {
+    const globalStore = useGlobalStore();
+    onBeforeUnmount(() => {
+      globalStore.footer.title = '';
+    });
     return {
       title: '',
     };

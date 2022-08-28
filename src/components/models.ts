@@ -3,5 +3,5 @@ export enum HeaderLinkKey {
   Service = 'service',
   Process = 'process',
   Partner = 'partner',
-  ContactUs = 'contact-us'
+  ContactUs = 'contact-us',
 }

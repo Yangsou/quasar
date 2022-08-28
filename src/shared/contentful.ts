@@ -23,6 +23,6 @@ export const contentfulAPI = {
     return GetContentfulApp().getEntry(entryId);
   },
   getAssetById: (id: string) => {
-    return GetContentfulApp().getAsset(id)
-  }
+    return GetContentfulApp().getAsset(id);
+  },
 };
