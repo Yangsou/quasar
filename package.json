@@ -11,10 +11,10 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "dev:ssr": "quasar dev -m ssr",
-    "build": "quasar build -m ssr",
+    "build": "cd dist/ssr && npm i",
     "build:pwa": "quasar build -m pwa",
     "build:ssr": "quasar build -m ssr",
-    "start": "node dist/ssr/index.js"
+    "start": "cd dist/ssr && node index.js"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
