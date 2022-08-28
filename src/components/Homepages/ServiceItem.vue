@@ -1,7 +1,7 @@
 <template>
   <div class="service-item tw-relative tw-overflow-hidden">
     <img
-      src="../../assets/imgs/meeting.jpeg"
+      src="../../assets/imgs/meeting.png"
       class="tw-w-full tw-h-full tw-object-cover"
     />
     <div

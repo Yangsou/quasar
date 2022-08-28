@@ -21,6 +21,7 @@
     "axios": "^0.21.1",
     "contentful": "^9.1.32",
     "core-js": "^3.6.5",
+    "firebase-admin": "^11.0.1",
     "firebase-functions": "^3.22.0",
     "lodash": "^4.17.21",
     "marked": "^4.0.18",

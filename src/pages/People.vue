@@ -55,7 +55,7 @@
     height: 70vh;
     position: relative;
     background: {
-      image: url(../assets/imgs/meeting.jpeg);
+      image: url(../assets/imgs/meeting.png);
       position: center;
       size: cover;
     }

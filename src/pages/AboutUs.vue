@@ -90,7 +90,7 @@
         </div>
       </div>
       <div class="tw-text-center">
-        <img src="../assets/imgs/meeting.jpeg" class="tw-w-full tw-max-w-2xl" />
+        <img src="../assets/imgs/meeting.png" class="tw-w-full tw-max-w-2xl" />
       </div>
     </div>
   </section>
@@ -103,7 +103,7 @@
     height: 70vh;
     position: relative;
     background: {
-      image: url(../assets/imgs/meeting.jpeg);
+      image: url(../assets/imgs/meeting.png);
       position: center;
       size: cover;
     }
