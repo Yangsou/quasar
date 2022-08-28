@@ -1,8 +1,7 @@
-export interface Todo {
-  id: number;
-  content: string;
-}
-
-export interface Meta {
-  totalCount: number;
+export enum HeaderLinkKey {
+  Homepage = 'homepage',
+  Service = 'service',
+  Process = 'process',
+  Partner = 'partner',
+  ContactUs = 'contact-us'
 }
