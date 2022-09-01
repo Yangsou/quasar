@@ -18,6 +18,7 @@
             <button
               v-bind:class="{ 'is-active': currentSection === 'contact-us' }"
               class="btn-default btn-toggle-menu lazy-effect"
+              @click="isShowMenu = true"
             >
               <!-- <span class="line"></span> -->
             </button>
@@ -25,6 +26,73 @@
         </ul>
       </div>
     </div>
+    <q-dialog
+      v-model="isShowMenu"
+      persistent
+      :maximized="true"
+      transition-show="slide-down"
+      transition-hide="slide-up"
+    >
+      <div class="bg-secondary header__dialog">
+        <div class="container">
+          <div class="text-center tw-relative tw-pt-4">
+            <img
+              class="header__logo header__logo--sm"
+              src="../assets/imgs/Logo@3x.png"
+            />
+            <q-btn
+              class="tw-absolute tw-bottom-0 tw-right-0"
+              v-close-popup
+              icon="close"
+              flat
+              round
+              color="white"
+            />
+          </div>
+
+          <div class="item">
+            <router-link
+              class="tw-text-3xl text-white-600 tw-no-underline"
+              :exact-active-class="'text-primary'"
+              to="/"
+              >Homepage</router-link
+            >
+          </div>
+          <div class="item tw-mt-6">
+            <router-link
+              class="tw-text-3xl text-white-600 tw-no-underline"
+              :active-class="'text-primary'"
+              to="/about-us"
+              >About Us</router-link
+            >
+            <div class="tw-pl-6 tw-mt-2">
+              <router-link
+                class="tw-text-md text-white-600 tw-no-underline"
+                :active-class="'text-primary'"
+                to="/lion-people"
+                >Lion People</router-link
+              >
+            </div>
+            <div class="tw-pl-6 tw-mt-2">
+              <router-link
+                :active-class="'text-primary'"
+                class="tw-text-md text-white-600 tw-no-underline"
+                to="/lion-people"
+                >Lion Vision</router-link
+              >
+            </div>
+          </div>
+          <div class="item tw-mt-6">
+            <router-link
+              class="tw-text-3xl text-white-600 tw-no-underline"
+              :active-class="'text-primary'"
+              to="/lion-sharing"
+              >Lion Sharing</router-link
+            >
+          </div>
+        </div>
+      </div>
+    </q-dialog>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -51,6 +119,9 @@
   }
   &__logo {
     height: 56px;
+    &--sm {
+      height: 36px;
+    }
   }
   &__menu {
     ul {
@@ -82,6 +153,26 @@
       }
       + li {
         margin-left: 16px;
+      }
+    }
+  }
+  &__dialog {
+    .item {
+      a {
+        transition: all 450ms linear;
+      }
+      .text-primary {
+        position: relative;
+        padding-left: 42px;
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: calc(50% - 1px);
+          height: 2px;
+          width: 32px;
+          background-color: $primary;
+        }
       }
     }
   }
@@ -158,6 +249,12 @@
   //   transition: opacity 550ms ease-in;
   // }
 }
+.text-white-600 {
+  color: #949799;
+  &:hover {
+    color: #ffffff;
+  }
+}
 </style>
 <script lang="ts">
 import { doScrolling } from 'src/shared/functional';
@@ -166,11 +263,9 @@ import { HeaderLinkKey } from './models';
 
 export default defineComponent({
   name: 'GlobalHeader',
-  // props: {
-  //   //
-  // },
   setup() {
     const currentSection = ref<HeaderLinkKey>(HeaderLinkKey.Homepage);
+    const isShowMenu = ref(false);
 
     const moveToSection = (key: HeaderLinkKey) => {
       currentSection.value = key;
@@ -204,12 +299,13 @@ export default defineComponent({
     });
     return {
       currentSection,
+      isShowMenu,
       links: [
         { label: 'Homepage', key: HeaderLinkKey.Homepage },
         { label: 'Service', key: HeaderLinkKey.Service },
         { label: 'Process', key: HeaderLinkKey.Process },
         { label: 'Partner', key: HeaderLinkKey.Partner },
-        { label: 'Contact Us', key: 'footer' },
+        { label: 'Contact Us', key: 'footer' as HeaderLinkKey },
       ],
       moveToSection,
     };
