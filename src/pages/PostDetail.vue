@@ -1,7 +1,19 @@
 <template>
   <section id="post-detail" class="post-detail">
     <div class="post-detail__main">
+      <video
+        autoplay
+        loop
+        class="post-detail__hero-img tw-object-cover"
+        v-if="entry.fields.heroImage?.fields?.file?.contentType === 'video/mp4'"
+      >
+        <source
+          :src="`https:${entry.fields.heroImage?.fields?.file.url}`"
+          type="video/mp4"
+        />
+      </video>
       <img
+        v-else
         :src="entry?.fields.heroImage.fields.file?.url"
         class="post-detail__hero-img"
       />
@@ -31,7 +43,7 @@
 
     <div class="container">
       <p class="tw-text-2xl tw-font-bold">Interesting Articles to Read</p>
-      <div class="tw-grid tw-grid-cols-3 tw-gap-6">
+      <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6">
         <post-item
           v-for="item in posts"
           :key="item.sys.id"

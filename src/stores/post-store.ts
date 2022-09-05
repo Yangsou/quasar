@@ -11,6 +11,7 @@ export type PostType = {
     fields: {
       file?: {
         url: string;
+        contentType: string
       };
     };
   };
@@ -47,9 +48,9 @@ export const usePostStore = defineStore('post', {
   actions: {
     async getEntries() {
       try {
-        const entries = await contentfulAPI.getEntries();
-        console.log('entries', entries);
-        this.entries = entries as EntryInterface;
+        this.entries = await contentfulAPI.getEntries() as EntryInterface;
+        // console.log('entries', entries);
+        // this.entries = entries as EntryInterface;
       } catch (error) {
         console.log(error);
       }
@@ -71,7 +72,7 @@ export const usePostStore = defineStore('post', {
           ...this.entries,
           items: entries,
         };
-      } catch (error) {}
+      } catch (error) { }
     },
   },
   getters: {

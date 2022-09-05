@@ -8,8 +8,8 @@
       </div>
     </div>
     <div class="container tw-py-20">
-      <div class="tw-flex">
-        <div class="tw-w-1/2">
+      <div class="tw-flex tw-flex-wrap md:tw-flex-nowrap">
+        <div class="tw-w-full tw-px-4 md:tw-w-1/2">
           <div
             class="about-us__card shadow-7 tw-py-4 tw-px-6 tw-transform tw--translate-y-32"
           >
@@ -25,7 +25,7 @@
             <p class="text-h4 text-svn">Lion Team</p>
           </div>
         </div>
-        <div class="tw-w-1/2">
+        <div class="tw-w-full md:tw-w-1/2 tw-px-4">
           <div class="about-us__group-imgs">
             <img src="../assets/imgs/car.jpeg" class="img is-active" />
             <img src="../assets/imgs/car.jpeg" class="img" />
@@ -36,7 +36,7 @@
     </div>
 
     <div class="bg-secondary">
-      <p class="text-center text-white text-h3 tw-py-28">
+      <p class="text-center text-white tw-text-2xl md:tw-text-6xl tw-py-28">
         <span>Your Vision, Our Passion</span>
 
         <svg
@@ -74,9 +74,9 @@
     </div>
 
     <div class="container">
-      <div class="tw-flex">
+      <div class="tw-flex tw-flex-wrap md:tw-flex-nowrap">
         <div class="tw-w-1/2"></div>
-        <div class="tw-w-1/2">
+        <div class="tw-w-full md:tw-w-1/2">
           <div class="about-us__card tw-py-4 tw-px-6">
             <p class="text-h4 title">Lion's Mission</p>
             <p class="text">
@@ -89,7 +89,7 @@
           </div>
         </div>
       </div>
-      <div class="tw-text-center">
+      <div class="tw-text-center tw-px-2">
         <img src="../assets/imgs/meeting.png" class="tw-w-full tw-max-w-2xl" />
       </div>
     </div>
@@ -125,7 +125,8 @@
   &__card {
     border-radius: 8px;
     background-color: #fff;
-    width: 450px;
+    max-width: 450px;
+    width: 100%;
     .title {
       position: relative;
       &::before {
@@ -141,8 +142,12 @@
   }
   &__group-imgs {
     position: relative;
-    width: 320px;
-    height: 460px;
+    @media screen and (min-width: 768x) {
+      width: 320px;
+      height: 460px;
+    }
+    width: calc(100% - 64px);
+    height: 360px;
     .img {
       position: absolute;
       top: 0;

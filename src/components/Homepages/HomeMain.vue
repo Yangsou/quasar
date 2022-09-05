@@ -19,7 +19,8 @@
             class="home-slide__logo-brand"
             src="../../assets/imgs/Graphic@3x.png"
           />
-          <p class="text-white text-h3">
+          <p class="text-white tw-text-3xl md:tw-text-6xl">
+            <span class="text-svn tw-text-9xl tw-opacity-25">Lion</span><br />
             Build Your Brand <br />
             Create Your Power
           </p>
@@ -27,24 +28,29 @@
       </q-carousel-slide>
       <q-carousel-slide
         name="integrated"
-        class="bg-primary column no-wrap flex-center"
+        class="bg-primary column no-wrap flex-center tw-relative"
       >
         <div class="items-center justify-center row">
-          <!-- <img
-            class="home-slide__logo-brand"
-            src="../../assets/imgs/Graphic@3x.png"
-          /> -->
-          <p class="text-white text-h3">
-            We are 360° Integrated<br />
-            Advertising Agency
-          </p>
+          <img
+            class="tw-absolute tw-h-full tw-w-auto tw-opacity-25 tw-top-0 tw--left-72"
+            src="../../assets/imgs/Logo@3x.png"
+          />
+          <div>
+            <p class="text-white text-svn tw-text-9xl tw-mb-0 tw-opacity-25">
+              Welcome
+            </p>
+            <p class="text-white tw-text-3xl md:tw-text-6xl">
+              We are 360° Integrated<br />
+              Advertising Agency
+            </p>
+          </div>
         </div>
       </q-carousel-slide>
     </q-carousel>
     <div class="bg-white-500">
       <div class="home__wrap-md">
         <p class="text-center text-h2 text-svn">Who We Are?</p>
-        <p class="text-dark">
+        <p class="text-dark tw-px-4">
           We are 360° integrated advertising agency providing a full-site of
           marketing solutions including branding strategy, creative collateral
           design, digital content, online & offline communications. Whether
@@ -54,8 +60,10 @@
       </div>
     </div>
     <div class="container bg-light branding tw-mt-20 tw-pb-20">
-      <div class="items-center justify-between row">
-        <div class="tw-w-1/2 tw-flex tw-justify-end">
+      <div
+        class="items-center justify-between row tw-flex-wrap md:tw-flex-nowrap tw-px-4"
+      >
+        <div class="md:tw-w-1/2 tw-flex tw-justify-end">
           <div class="tw-relative tw-pr-14">
             <p
               class="text-h1 tw-font-bold tw-absolute tw-right-0 tw-bottom-6 text-white-400"
@@ -68,7 +76,7 @@
             />
           </div>
         </div>
-        <div class="tw-w-1/2">
+        <div class="md:tw-w-1/2">
           <p class="tw-text-6xl text-svn text-primary tw-mb-0">Branding</p>
           <p class="text-dark tw-max-w-md">
             Our job is to tell your brand story, create an authentic and
@@ -78,9 +86,9 @@
         </div>
       </div>
       <div
-        class="items-center justify-between tw-flex tw-flex-row-reverse with-pattern tw-mt-20"
+        class="items-center justify-between tw-flex tw-flex-row-reverse with-pattern tw-mt-20 tw-flex-wrap md:tw-flex-nowrap tw-px-4"
       >
-        <div class="tw-w-1/2 tw-flex">
+        <div class="md:tw-w-1/2 tw-flex">
           <div class="tw-relative tw-pl-16">
             <p
               class="text-h1 tw-font-bold tw-absolute tw--left-4 tw-bottom-16 text-white-400"
@@ -93,8 +101,8 @@
             />
           </div>
         </div>
-        <div class="tw-w-1/2 tw-flex tw-justify-end">
-          <div class="tw-max-w-md tw-pl-20">
+        <div class="md:tw-w-1/2 tw-flex tw-justify-end">
+          <div class="tw-max-w-md tw-text-right md:tw-text-left md:tw-pl-20">
             <p class="tw-text-6xl text-svn text-primary tw-mb-0">Creative</p>
             <p class="text-dark tw-max-w-md">
               Creative design is one key of elements of your brand's journey.
@@ -105,8 +113,10 @@
           </div>
         </div>
       </div>
-      <div class="items-center justify-between row tw-mt-20">
-        <div class="tw-w-1/2 tw-flex tw-justify-end">
+      <div
+        class="items-center justify-between row tw-mt-20 tw-flex-wrap md:tw-flex-nowrap tw-px-4"
+      >
+        <div class="md:tw-w-1/2 tw-flex tw-justify-end">
           <div class="tw-relative tw-pr-16">
             <p
               class="text-h1 tw-font-bold tw-absolute tw-right-0 tw-bottom-16 text-white-400"
@@ -119,7 +129,7 @@
             />
           </div>
         </div>
-        <div class="tw-w-1/2">
+        <div class="md:tw-w-1/2">
           <p class="tw-text-6xl text-svn text-primary tw-mb-0">Digital</p>
           <p class="text-dark tw-max-w-md">
             When the simplifying the complex solutions we engage the target
@@ -132,7 +142,7 @@
 
     <div class="bg-white-500" id="service">
       <div class="container tw-py-28">
-        <div class="tw-grid tw-grid-cols-4 tw-gap-4">
+        <div class="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-4">
           <div
             v-for="(item, index) in services"
             :key="item.title"
@@ -164,7 +174,10 @@
 }
 .branding {
   &__mockup {
-    width: 380px;
+    width: 300px;
+    @media screen and (min-width: 992px) {
+      width: 380px;
+    }
   }
   .with-pattern {
     background: {

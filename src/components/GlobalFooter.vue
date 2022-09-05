@@ -2,15 +2,23 @@
   <footer id="footer" class="bg-secondary tw-relative tw-mt-10 tw-pt-28">
     <div
       v-if="!!title"
-      class="text-white tw-absolute tw-top-0 tw-left-0 tw-transform tw--translate-y-1/2 bg-primary tw-text-center tw-text-3xl tw-rounded-lg tw-py-4 tw-w-1/2 tw-whitespace-pre-line"
+      class="text-white tw-absolute tw-top-0 tw-left-0 tw-transform tw--translate-y-1/2 bg-primary tw-text-center tw-text-3xl tw-rounded-lg tw-py-4 tw-w-full lg:tw-w-1/2 tw-whitespace-pre-line"
     >
       {{ title }}
     </div>
     <div class="container">
-      <div class="tw-flex tw-justify-between tw-gap-x-6 tw-pb-10">
-        <div class="tw-w-1/3" style="border-right: 1px solid #9c8b78">
+      <div
+        class="tw-flex-wrap md:tw-flex-nowrap tw-flex tw-justify-between tw-gap-x-6 tw-pb-10"
+      >
+        <div
+          class="tw-w-full md:tw-w-1/3 tw-px-4"
+          style="border-right: 1px solid #9c8b78"
+        >
           <router-link to="/">
-            <img src="../assets/imgs/Logo@2x.png" class="tw-h-12" />
+            <img
+              src="../assets/imgs/Logo@2x.png"
+              class="tw-w-4/5 tw-mx-auto tw-block md:tw-mx-0 md:tw-w-auto md:tw-h-12"
+            />
           </router-link>
           <div class="tw-pl-8 tw-mt-4 tw-relative">
             <img
@@ -41,7 +49,7 @@
             </p>
           </div>
         </div>
-        <div class="tw-w-1/3">
+        <div class="tw-w-full md:tw-w-1/3 tw-px-4 tw-mb-6">
           <div class="tw-grid tw-grid-cols-2">
             <div v-for="item in links" :key="item.label" class="tw-mt-3">
               <router-link :to="item.url" class="router-link">{{
@@ -65,13 +73,13 @@
             />
           </router-link>
         </div>
-        <div class="tw-w-1/3">
-          <q-form>
-            <q-input label="Full name*" dark outlined v-model="form.name" />
+        <div class="tw-w-full md:tw-w-1/3 tw-px-4">
+          <q-form class="tw-bg-white tw-px-4 tw-py-8 tw-rounded-lg">
+            <p class="tw-text-xl tw-uppercase tw-font-bold">Get in touch</p>
+            <q-input label="Full name*" outlined v-model="form.name" />
             <q-input
               label="Email*"
               class="tw-mt-4"
-              dark
               outlined
               v-model="form.email"
             />
@@ -79,7 +87,6 @@
               label="Fill in message*"
               type="textarea"
               class="tw-mt-4"
-              dark
               outlined
               v-model="form.message"
             />

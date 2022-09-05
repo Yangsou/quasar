@@ -8,11 +8,14 @@
       </div>
     </div>
     <div class="container tw-py-20">
-      <div class="tw-flex">
-        <div class="tw-w-1/2 tw-text-right">
-          <img src="../assets/imgs/Creative.png" class="tw-max-w-md" />
+      <div class="tw-flex tw-flex-wrap md:tw-flex-nowrap">
+        <div class="tw-w-full md:tw-w-1/2 tw-text-right">
+          <img
+            src="../assets/imgs/Creative.png"
+            class="tw-max-w-md tw-w-full"
+          />
         </div>
-        <div class="tw-w-1/2">
+        <div class="tw-w-full md:tw-w-1/2">
           <div class="about-us__card tw-py-4 tw-px-6">
             <p class="text-h4">WE ARE A TEAM OF GREATS</p>
             <p class="text">
@@ -29,9 +32,15 @@
     <div class="people__wrap">
       <p class="tw-text-2xl tw-font-bold">LION TEAM</p>
       <div class="tw-relative people__content tw-py-16">
-        <div class="tw--ml-8">
-          <div v-for="item in 4" v-bind:key="item" class="people__item tw-w-64">
-            <p class="text-white tw-pl-16 tw-mb-2 tw-uppercase">The designer</p>
+        <div class="md:tw--ml-8">
+          <div
+            v-for="item in 4"
+            v-bind:key="item"
+            class="people__item tw-w-64 tw-block md:tw-inline-block tw-mx-auto md:tw-mx-0"
+          >
+            <p class="text-white md:tw-pl-16 tw-mb-2 tw-uppercase">
+              The designer
+            </p>
             <div class="people__guy tw-w-64 tw-h-64">
               <img
                 src="../assets/imgs/lion-people.jpeg"
@@ -77,7 +86,8 @@
   &__card {
     border-radius: 8px;
     background-color: #fff;
-    width: 450px;
+    max-width: 450px;
+    width: 100%;
     .title {
       position: relative;
       &::before {
@@ -127,9 +137,11 @@
     background: #292929;
   }
   &__item {
-    display: inline-block;
+    // display: inline-block;
     + .people__item {
-      margin-left: 32px;
+      @media screen and (min-width: 768px) {
+        margin-left: 32px;
+      }
     }
   }
   &__guy {

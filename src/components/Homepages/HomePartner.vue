@@ -1,7 +1,7 @@
 <template>
   <section id="partner" class="bg-white-500 tw-py-10">
     <div class="container">
-      <div class="tw-grid tw-grid-cols-4 tw-gap-y-5">
+      <div class="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-y-5">
         <div class="tw-flex tw-items-center tw-justify-center">
           <img
             class="tw-h-32 tw-max-w-full"

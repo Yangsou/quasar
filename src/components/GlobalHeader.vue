@@ -7,14 +7,17 @@
       <div class="header__menu">
         <ul>
           <li
-            v-bind:class="{ 'is-active': currentSection === item.key }"
+            v-bind:class="{
+              'is-active': currentSection === item.key,
+              'tw-hidden md:tw-inline-block': true,
+            }"
             v-for="item in links"
             :key="item.key"
             @click="moveToSection(item.key)"
           >
             {{ item.label }}
           </li>
-          <li>
+          <li class="tw-inline-block">
             <button
               v-bind:class="{ 'is-active': currentSection === 'contact-us' }"
               class="btn-default btn-toggle-menu lazy-effect"
@@ -33,7 +36,7 @@
       transition-show="slide-down"
       transition-hide="slide-up"
     >
-      <div class="bg-secondary header__dialog">
+      <div class="bg-secondary header__dialog tw-px-6">
         <div class="container">
           <div class="text-center tw-relative tw-pt-4">
             <img
@@ -114,8 +117,10 @@
     width: 100%;
     max-width: 1280px;
     margin: auto;
-    border-bottom: 1px solid #ffffff;
     padding: 16px 16px 8px;
+    @media screen and (min-width: 768px) {
+      border-bottom: 1px solid #ffffff;
+    }
   }
   &__logo {
     height: 56px;
@@ -130,7 +135,7 @@
     li {
       position: relative;
       color: #ffffff;
-      display: inline-block;
+      // display: inline-block;
       cursor: pointer;
       padding: 4px 8px 4px 0;
       &:hover {

@@ -1,10 +1,12 @@
 <template>
   <div id="process" class="working-process">
-    <div class="container tw-flex tw-items-center tw-py-32">
+    <div
+      class="container tw-flex tw-items-center tw-flex-wrap lg:tw-flex-nowrap tw-py-32"
+    >
       <div
-        class="tw-w-3/5 tw-justify-center tw-flex tw-items-center tw-flex-col"
+        class="xl:tw-w-3/5 md:tw-w-full lg:tw-w-1/2 tw-justify-center tw-flex tw-items-center tw-flex-col"
       >
-        <div class="tw-max-w-md tw-pl-32">
+        <div class="tw-max-w-md tw-pl-8 md:tw-pl-32">
           <p
             class="tw-text-6xl text-svn text-primary tw-relative working-process__title"
           >
@@ -20,9 +22,11 @@
           </p>
         </div>
       </div>
-      <div class="tw-w-2/5">
-        <div class="tw-flex tw-gap-x-6">
-          <div class="tw-flex tw-justify-center tw-flex-col tw-gap-y-6">
+      <div class="xl:tw-w-2/5 tw-px-4 tw-w-full lg:tw-w-1/2">
+        <div
+          class="md:tw-flex tw-gap-x-6 tw-justify-center lg:tw-justify-start tw-w-full"
+        >
+          <div class="tw-w-full tw-flex tw-justify-start tw-flex-wrap tw-gap-6">
             <div class="working-process__item">
               <p class="working-process__index">1</p>
               <img
@@ -35,6 +39,20 @@
                 Marketing solutions
               </p>
             </div>
+            <div
+              class="working-process__item tw-transform md:tw-translate-y-1/2"
+            >
+              <p class="working-process__index">2</p>
+              <img
+                src="../../assets/imgs/presentation@2x.png"
+                class="tw-w-24 tw-h-16 tw-object-cover"
+              />
+              <p class="text-h4">Design</p>
+              <p class="working-process__description">
+                Comprehensive strategic plan <br />
+                Conceptualization
+              </p>
+            </div>
             <div class="working-process__item">
               <p class="working-process__index">3</p>
               <img
@@ -45,6 +63,22 @@
               <p class="working-process__description">
                 Contract signing <br />
                 Benchmark setting
+              </p>
+            </div>
+
+            <div
+              class="working-process__item tw-transform md:tw-translate-y-1/2"
+            >
+              <p class="working-process__index">4</p>
+              <img
+                src="../../assets/imgs/paint-palette@2x.png"
+                class="tw-w-24 tw-h-16 tw-object-cover"
+              />
+              <p class="text-h4">Execute</p>
+              <p class="working-process__description">
+                Media approaching <br />
+                Consumer engagement <br />
+                Drive action
               </p>
             </div>
             <div class="working-process__item">
@@ -61,33 +95,8 @@
               </p>
             </div>
           </div>
-          <div class="tw-flex tw-justify-center tw-flex-col tw-gap-y-6">
-            <div class="working-process__item">
-              <p class="working-process__index">2</p>
-              <img
-                src="../../assets/imgs/presentation@2x.png"
-                class="tw-w-24 tw-h-16 tw-object-cover"
-              />
-              <p class="text-h4">Design</p>
-              <p class="working-process__description">
-                Comprehensive strategic plan <br />
-                Conceptualization
-              </p>
-            </div>
-            <div class="working-process__item">
-              <p class="working-process__index">4</p>
-              <img
-                src="../../assets/imgs/paint-palette@2x.png"
-                class="tw-w-24 tw-h-16 tw-object-cover"
-              />
-              <p class="text-h4">Execute</p>
-              <p class="working-process__description">
-                Media approaching <br />
-                Consumer engagement <br />
-                Drive action
-              </p>
-            </div>
-          </div>
+          <!-- <div class="tw-flex tw-justify-center tw-flex-col tw-gap-y-6">
+            </div> -->
         </div>
       </div>
     </div>
@@ -114,11 +123,15 @@
   &__item {
     overflow: hidden;
     position: relative;
-    width: 220px;
+    // width: 220px;
     border-radius: 8px;
     padding: 12px;
     color: #ffffff;
     background-color: $secondary;
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      width: 220px;
+    }
   }
   &__index {
     position: absolute;

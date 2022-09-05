@@ -41,7 +41,10 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .service-item {
-  height: 300px;
+  height: 200px;
+  @media screen and (min-width: 992px) {
+    height: 300px;
+  }
   &__content {
     display: none;
     background-color: #ffffff;

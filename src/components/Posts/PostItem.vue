@@ -2,13 +2,25 @@
   <div
     :class="`flex ${
       type ? `tw-flex-${type}` : ''
-    } tw-shadow-2xl tw-rounded-lg post-item tw-justify-between tw-mb-6`"
+    } tw-shadow-2xl tw-rounded-lg post-item tw-justify-between tw-mb-6 tw-px-2 md:tw-px-0`"
   >
+    <video
+      autoplay
+      loop
+      class="tw-w-full md:tw-w-2/5 tw-max-h-64 tw-object-cover post-item__hero-img"
+      v-if="post.fields.heroImage?.fields?.file?.contentType === 'video/mp4'"
+    >
+      <source
+        :src="`https:${post.fields.heroImage?.fields?.file.url}`"
+        type="video/mp4"
+      />
+    </video>
     <img
+      v-else
       :src="heroImage"
-      class="post-item__hero-img tw-object-cover tw-rounded-tl-xl tw-rounded-bl-xl tw-w-2/5"
+      class="post-item__hero-img tw-object-cover md:tw-rounded-tl-xl md:tw-rounded-bl-xl tw-w-full md:tw-w-2/5"
     />
-    <div class="post-item__content tw-w-3/5 tw-pl-6 tw-py-6">
+    <div class="post-item__content tw-w-full md:tw-w-3/5 md:tw-pl-6 tw-py-6">
       <p class="tw-mb-0">
         <span class="tw-uppercase tw-font-bold tw-text-sm">{{
           post.fields.author?.fields?.name
@@ -50,7 +62,6 @@ export default defineComponent({
       props.post.fields.heroImage?.sys?.id,
       true
     );
-    // console.log(props.post);
 
     return {
       heroImage,
