@@ -8,14 +8,14 @@
       >
         <div class="tw-max-w-md tw-pl-8 md:tw-pl-32">
           <p
-            class="tw-text-6xl text-svn text-primary tw-relative working-process__title"
+            class="tw-text-6xl text-svn text-primary tw-relative working-process__title animate-to-right lazy-load"
           >
             <span class="tw-z-10 tw-relative">
               Working <br />
               Process
             </span>
           </p>
-          <p class="text-black">
+          <p class="text-black animate-to-top lazy-load">
             Establishing a create workflow is not just about transforming
             creative work into a standardized process. It will make everyone's
             live easier while enhancing its effectiveness.
@@ -26,7 +26,9 @@
         <div
           class="md:tw-flex tw-gap-x-6 tw-justify-center lg:tw-justify-start tw-w-full"
         >
-          <div class="tw-w-full tw-flex tw-justify-start tw-flex-wrap tw-gap-6">
+          <div
+            class="tw-w-full tw-flex tw-justify-start tw-flex-wrap tw-gap-6 working-process__list lazy-load"
+          >
             <div class="working-process__item">
               <p class="working-process__index">1</p>
               <img
@@ -129,8 +131,32 @@
     color: #ffffff;
     background-color: $secondary;
     width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 450ms linear;
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        transition-delay: $i * 200ms;
+      }
+    }
     @media screen and (min-width: 768px) {
+      &:nth-child(2),
+      &:nth-child(4) {
+        transform: translateY(calc(50% + 50px));
+      }
       width: 220px;
+    }
+  }
+  &__list.lazy-load.active {
+    .working-process__item {
+      opacity: 1;
+      transform: translateY(0);
+      @media screen and (min-width: 768px) {
+        &:nth-child(2),
+        &:nth-child(4) {
+          transform: translateY(50%);
+        }
+      }
     }
   }
   &__index {

@@ -10,6 +10,7 @@
             v-bind:class="{
               'is-active': currentSection === item.key,
               'tw-hidden md:tw-inline-block': true,
+              'drop-to-down': true,
             }"
             v-for="item in links"
             :key="item.key"
@@ -124,6 +125,23 @@
   }
   &__logo {
     height: 56px;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation-name: semi-rotate;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+    animation-delay: 500ms;
+    transform-style: preserve-3d;
+    @keyframes semi-rotate {
+      from {
+        opacity: 0.6;
+        transform: scale(0.9) rotate(22.5deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+      }
+    }
     &--sm {
       height: 36px;
     }
@@ -258,6 +276,28 @@
   color: #949799;
   &:hover {
     color: #ffffff;
+  }
+}
+.drop-to-down {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-name: drop-to-down;
+  animation-duration: 350ms;
+  animation-timing-function: linear;
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 250ms;
+    }
+  }
+}
+@keyframes drop-to-down {
+  from {
+    opacity: 0.4;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

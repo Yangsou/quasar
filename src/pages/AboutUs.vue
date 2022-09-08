@@ -103,7 +103,7 @@
     height: 70vh;
     position: relative;
     background: {
-      image: url(../assets/imgs/meeting.png);
+      image: url(../assets/imgs/van-phong-1920x1080.jpeg);
       position: center;
       size: cover;
     }

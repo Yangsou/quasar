@@ -63,7 +63,9 @@
       <div
         class="items-center justify-between row tw-flex-wrap md:tw-flex-nowrap tw-px-4"
       >
-        <div class="md:tw-w-1/2 tw-flex tw-justify-end">
+        <div
+          class="md:tw-w-1/2 tw-flex tw-justify-end animate-to-right lazy-load"
+        >
           <div class="tw-relative tw-pr-14">
             <p
               class="text-h1 tw-font-bold tw-absolute tw-right-0 tw-bottom-6 text-white-400"
@@ -76,7 +78,7 @@
             />
           </div>
         </div>
-        <div class="md:tw-w-1/2">
+        <div class="md:tw-w-1/2 animate-to-left lazy-load">
           <p class="tw-text-6xl text-svn text-primary tw-mb-0">Branding</p>
           <p class="text-dark tw-max-w-md">
             Our job is to tell your brand story, create an authentic and
@@ -89,7 +91,7 @@
         class="items-center justify-between tw-flex tw-flex-row-reverse with-pattern tw-mt-20 tw-flex-wrap md:tw-flex-nowrap tw-px-4"
       >
         <div class="md:tw-w-1/2 tw-flex">
-          <div class="tw-relative tw-pl-16">
+          <div class="tw-relative tw-pl-16 animate-to-left lazy-load">
             <p
               class="text-h1 tw-font-bold tw-absolute tw--left-4 tw-bottom-16 text-white-400"
             >
@@ -101,7 +103,9 @@
             />
           </div>
         </div>
-        <div class="md:tw-w-1/2 tw-flex tw-justify-end">
+        <div
+          class="md:tw-w-1/2 tw-flex tw-justify-end animate-to-right lazy-load"
+        >
           <div class="tw-max-w-md tw-text-right md:tw-text-left md:tw-pl-20">
             <p class="tw-text-6xl text-svn text-primary tw-mb-0">Creative</p>
             <p class="text-dark tw-max-w-md">
@@ -116,7 +120,9 @@
       <div
         class="items-center justify-between row tw-mt-20 tw-flex-wrap md:tw-flex-nowrap tw-px-4"
       >
-        <div class="md:tw-w-1/2 tw-flex tw-justify-end">
+        <div
+          class="md:tw-w-1/2 tw-flex tw-justify-end animate-to-right lazy-load"
+        >
           <div class="tw-relative tw-pr-16">
             <p
               class="text-h1 tw-font-bold tw-absolute tw-right-0 tw-bottom-16 text-white-400"
@@ -129,7 +135,7 @@
             />
           </div>
         </div>
-        <div class="md:tw-w-1/2">
+        <div class="md:tw-w-1/2 animate-to-left lazy-load">
           <p class="tw-text-6xl text-svn text-primary tw-mb-0">Digital</p>
           <p class="text-dark tw-max-w-md">
             When the simplifying the complex solutions we engage the target
@@ -146,7 +152,10 @@
           <div
             v-for="(item, index) in services"
             :key="item.title"
-            v-bind:class="{ 'tw-col-span-2': [0, 5, 6].includes(index) }"
+            v-bind:class="{
+              'tw-col-span-2': [0, 5, 6].includes(index),
+              'animate-to-top lazy-load': true,
+            }"
           >
             <service-item :service="item" />
           </div>
@@ -155,7 +164,7 @@
     </div>
   </section>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 .home {
   &__wrap-md {
     max-width: 490px;
@@ -165,6 +174,10 @@
   &-slide {
     &__logo-brand {
       width: 140px;
+      transition: transform 5s linear;
+      &:hover {
+        transform: scale3d(1.2, 1.2, 1.2);
+      }
       + p {
         margin-left: 24px;
         padding-top: 8px;
@@ -188,6 +201,50 @@
     }
   }
 }
+
+@mixin animate-Y($to-top: false) {
+  opacity: 0;
+  @if $to-top {
+    transform: translateY(50px);
+  } @else {
+    transform: translateY(-50px);
+  }
+  transition: all 450ms linear;
+  &.lazy-load.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@mixin animate-X($to-left: false) {
+  opacity: 0;
+  @if $to-left {
+    transform: translateX(-50px);
+  } @else {
+    transform: translateX(50px);
+  }
+  transition: all 550ms linear;
+  &.lazy-load.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.animate-to-top {
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}),
+    &:nth-child(#{$i + 3}),
+    &:nth-child(#{$i + 6}),
+    &:nth-child(#{$i}) {
+      transition-delay: $i * 200ms;
+    }
+  }
+  @include animate-Y(true);
+}
+.animate-to-left {
+  @include animate-X();
+}
+.animate-to-right {
+  @include animate-X(true);
+}
 </style>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
@@ -200,7 +257,7 @@ export default defineComponent({
       {
         title: 'Brand Strategy',
         description: 'Positioning',
-        img: 'service-brand.webp',
+        img: 'service-brand.jpeg',
       },
       {
         title: 'Market Research',
@@ -209,7 +266,7 @@ export default defineComponent({
       },
       {
         title: 'Integrated Marketing Plans',
-        img: 'service-integrated.webp',
+        img: 'service-integrated.jpeg',
       },
       {
         title: 'Collateral Design',
@@ -229,7 +286,7 @@ export default defineComponent({
       {
         title: 'Website Design',
         description: 'Development',
-        img: 'service-development.webp',
+        img: 'service-development.jpeg',
       },
       {
         title: 'Social Media',

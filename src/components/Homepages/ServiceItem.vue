@@ -2,13 +2,13 @@
   <div class="service-item tw-relative tw-overflow-hidden">
     <!-- src="../../assets/imgs/meeting.png" -->
     <img
-      :src="'/imgs/' + service.img"
-      class="tw-w-full tw-h-full tw-object-cover"
+      :data-src="'/imgs/' + service.img"
+      class="tw-w-full tw-h-full tw-object-cover lazy"
     />
     <div
       class="service-item__content tw-items-center tw-justify-center tw-absolute"
     >
-      <div class="text-center">
+      <div class="text-center q-animate--fade">
         <p class="text-h3 text-svn">{{ service.title }}</p>
         <p class="text-light" v-if="service.description">
           {{ service.description }}
@@ -42,6 +42,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 .service-item {
   height: 200px;
+  img {
+    transition: transform 550ms linear;
+  }
+  &:hover {
+    img {
+      transform: scale3d(1.2, 1.2, 1.2);
+    }
+  }
   @media screen and (min-width: 992px) {
     height: 300px;
   }
