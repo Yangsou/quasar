@@ -3,6 +3,7 @@
     <!-- src="../../assets/imgs/meeting.png" -->
     <img
       :data-src="'/imgs/' + service.img"
+      :src="'/imgs/' + service.img"
       class="tw-w-full tw-h-full tw-object-cover lazy"
     />
     <div

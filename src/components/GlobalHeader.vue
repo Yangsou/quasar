@@ -10,17 +10,39 @@
             v-bind:class="{
               'is-active': currentSection === item.key,
               'tw-hidden md:tw-inline-block': true,
-              'drop-to-down': true,
+              'drop-to-down tw-relative': true,
             }"
             v-for="item in links"
             :key="item.key"
             @click="moveToSection(item.key)"
           >
-            {{ item.label }}
+            <router-link
+              v-if="item.path"
+              :to="item.path"
+              class="tw-no-underline tw-bg-transparent"
+              >{{ item.label }}</router-link
+            >
+            <span v-else>{{ item.label }}</span>
+            <div
+              class="header__menu__child tw-absolute tw-bottom-0 tw-left-0 tw-transform tw-translate-y-full tw-rounded-lg tw-w-36"
+            >
+              <div class="tw-bg-white tw-rounded-lg">
+                <div v-for="child in item?.children" :key="child.key">
+                  <router-link
+                    :to="child.path"
+                    class="tw-text-black tw-no-underline tw-px-4 tw-py-2 tw-block"
+                    >{{ child.label }}</router-link
+                  >
+                </div>
+              </div>
+            </div>
           </li>
           <li class="tw-inline-block">
             <button
-              v-bind:class="{ 'is-active': currentSection === 'contact-us' }"
+              v-bind:class="{
+                'is-active': currentSection === 'contact-us',
+                'md:tw-hidden': true,
+              }"
               class="btn-default btn-toggle-menu lazy-effect"
               @click="isShowMenu = true"
             >
@@ -118,13 +140,13 @@
     width: 100%;
     max-width: 1280px;
     margin: auto;
-    padding: 16px 16px 8px;
+    padding: 16px 16px 0;
     @media screen and (min-width: 768px) {
       border-bottom: 1px solid #ffffff;
     }
   }
   &__logo {
-    height: 56px;
+    height: 48px;
     opacity: 0;
     animation-fill-mode: forwards;
     animation-name: semi-rotate;
@@ -143,39 +165,50 @@
       }
     }
     &--sm {
-      height: 36px;
+      height: 32px;
     }
   }
   &__menu {
     ul {
       list-style: none;
+      margin: 0;
     }
-    li {
+    li,
+    li > a {
       position: relative;
       color: #ffffff;
-      // display: inline-block;
       cursor: pointer;
-      padding: 4px 8px 4px 0;
+      border-radius: 4px;
+      padding: 4px 8px 4px 8px;
       &:hover {
-        color: $primary;
-      }
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        height: 2px;
-        width: 50%;
-        background-color: transparent;
+        color: #ffffff;
+        background: rgba(#ffffff, 0.2);
+        > .header__menu__child {
+          display: block;
+          padding-top: 24px;
+        }
       }
       &.is-active {
         color: $primary;
-        &::after {
-          background-color: currentColor;
-        }
+        background: $dark-page;
       }
       + li {
         margin-left: 16px;
+      }
+    }
+    li > a {
+      &:hover {
+        background: transparent;
+      }
+    }
+    &__child {
+      display: none;
+      a {
+        border-radius: 8px;
+        &:hover {
+          font-weight: bold;
+          background: rgba($primary, 0.6);
+        }
       }
     }
   }
@@ -282,11 +315,11 @@
   opacity: 0;
   animation-fill-mode: forwards;
   animation-name: drop-to-down;
-  animation-duration: 350ms;
+  animation-duration: 400ms;
   animation-timing-function: linear;
-  @for $i from 1 through 5 {
+  @for $i from 1 through 15 {
     &:nth-child(#{$i}) {
-      animation-delay: $i * 250ms;
+      animation-delay: $i * 150ms;
     }
   }
 }
@@ -329,7 +362,6 @@ export default defineComponent({
               document.body
             ).scrollTop;
       var header = document.getElementsByClassName('header')[0];
-      // console.log('scrollTop', scrollTop);
       if (scrollTop > 196) {
         header.classList.add('active');
       } else {
@@ -347,6 +379,27 @@ export default defineComponent({
       isShowMenu,
       links: [
         { label: 'Homepage', key: HeaderLinkKey.Homepage },
+        {
+          label: 'About Us',
+          key: HeaderLinkKey.AboutUs,
+          children: [
+            {
+              label: 'Lion People',
+              key: HeaderLinkKey.People,
+              path: '/lion-people',
+            },
+            {
+              label: 'Lion Vision',
+              key: HeaderLinkKey.Vision,
+              path: '/lion-vision',
+            },
+          ],
+        },
+        {
+          label: 'Lion Sharing',
+          key: HeaderLinkKey.Service,
+          path: '/lion-sharing',
+        },
         { label: 'Service', key: HeaderLinkKey.Service },
         { label: 'Process', key: HeaderLinkKey.Process },
         { label: 'Partner', key: HeaderLinkKey.Partner },
