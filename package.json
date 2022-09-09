@@ -17,6 +17,7 @@
     "start": "cd dist/ssr && node index.js"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.7.0",
     "@quasar/extras": "^1.0.0",
     "axios": "^0.21.1",
     "contentful": "^9.1.32",

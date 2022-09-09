@@ -74,10 +74,23 @@
           </router-link>
         </div>
         <div class="tw-w-full md:tw-w-1/3 tw-px-4">
-          <q-form class="tw-bg-white tw-px-4 tw-py-8 tw-rounded-lg">
+          <q-form
+            class="tw-bg-white tw-px-4 tw-py-8 tw-rounded-lg"
+            @submit="handleSendEmail"
+          >
             <p class="tw-text-xl tw-uppercase tw-font-bold">Get in touch</p>
-            <q-input label="Full name*" outlined v-model="form.name" />
             <q-input
+              label="Full name*"
+              outlined
+              v-model="form.name"
+              lazy-rules
+              :rules="[
+                (val) => (val && val.length > 0) || 'Please type your name',
+              ]"
+            />
+            <q-input
+              type="email"
+              required
               label="Email*"
               class="tw-mt-4"
               outlined
@@ -89,8 +102,16 @@
               class="tw-mt-4"
               outlined
               v-model="form.message"
+              lazy-rules
+              :rules="[
+                (val) => (val && val.length > 0) || 'Please type your message',
+              ]"
             />
-            <q-btn size="lg" class="tw-w-full tw-mt-4 d-btn-secondary"
+            <q-btn
+              size="lg"
+              type="submit"
+              :loading="loading"
+              class="tw-w-full tw-mt-4 d-btn-secondary"
               >Send</q-btn
             >
           </q-form>
@@ -119,11 +140,14 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
 import { useGlobalStore } from 'src/stores/global-store';
+import { emailJsAPI } from 'src/shared/emailjs';
+import { useQuasar } from 'quasar';
 
 export default defineComponent({
   name: 'GlobalFooter',
   setup() {
     const globalStore = useGlobalStore();
+    const $q = useQuasar();
     const links = ref([
       { url: '/', label: 'Homepage' },
       { url: '/lion-people', label: 'Lion People' },
@@ -135,15 +159,48 @@ export default defineComponent({
       { url: '/', label: 'Contact Us' },
       { url: '/about-us', label: 'About Us' },
     ]);
+    const loading = ref(false);
     const form = ref({
       name: '',
       email: '',
       message: '',
     });
+    const handleSendEmail = () => {
+      loading.value = true;
+      emailJsAPI
+        .send({
+          email: form.value.email,
+          name: form.value.name,
+          message: form.value.message,
+        })
+        .then(() => {
+          form.value = {
+            name: '',
+            email: '',
+            message: '',
+          };
+          $q.notify({
+            type: 'positive',
+            message: 'Send email successful!',
+          });
+        })
+        .catch((error) => {
+          $q.notify({
+            type: 'Negative',
+            message: 'Send email failure, please try again!',
+          });
+          console.error(error);
+        })
+        .finally(() => {
+          loading.value = false;
+        });
+    };
     return {
       title: computed(() => globalStore.footer.title),
       links,
       form,
+      loading,
+      handleSendEmail,
     };
   },
 });
