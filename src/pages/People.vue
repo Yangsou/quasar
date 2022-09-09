@@ -32,16 +32,19 @@
     <div class="people__wrap">
       <p class="tw-text-2xl tw-font-bold">LION TEAM</p>
       <div class="tw-relative people__content tw-py-16">
-        <div class="md:tw--ml-8">
+        <div class="xl:tw--ml-8">
           <div
             v-for="item in 4"
             v-bind:key="item"
-            class="people__item tw-w-64 tw-block md:tw-inline-block tw-mx-auto md:tw-mx-0"
+            class="people__item tw-block md:tw-inline-block tw-mx-auto md:tw-mx-0"
           >
             <p class="text-white md:tw-pl-16 tw-mb-2 tw-uppercase">
               The designer
             </p>
-            <div class="people__guy tw-w-64 tw-h-64">
+            <div
+              class="people__guy md:tw-w-52 md:tw-h-52 lg:tw-w-64 lg:tw-h-64 xl:tw-w-72 xl:tw-h-72"
+              data-title="Ralph Salazar"
+            >
               <img
                 src="../assets/imgs/lion-people.jpeg"
                 class="tw-w-full tw-h-full tw-relative tw-object-cover tw-object-top"
@@ -154,6 +157,26 @@
       width: 100%;
       height: 100%;
       background-color: $primary;
+    }
+    &::after {
+      content: attr(data-title);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #292929;
+      color: #fff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: large;
+      font-weight: 600;
+    }
+    &:hover {
+      &::after {
+        display: flex;
+      }
     }
   }
 }

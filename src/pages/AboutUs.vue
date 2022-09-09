@@ -77,7 +77,7 @@
       <div class="tw-flex tw-flex-wrap md:tw-flex-nowrap">
         <div class="tw-w-1/2"></div>
         <div class="tw-w-full md:tw-w-1/2">
-          <div class="about-us__card tw-py-4 tw-px-6">
+          <div class="about-us__card tw-py-4 tw-px-6 animate-to-left lazy-load">
             <p class="text-h4 title">Lion's Mission</p>
             <p class="text">
               Nobody knows your values, your story, your market and audience
@@ -90,7 +90,10 @@
         </div>
       </div>
       <div class="tw-text-center tw-px-2">
-        <img src="../assets/imgs/meeting.png" class="tw-w-full tw-max-w-2xl" />
+        <img
+          src="../assets/imgs/meeting.png"
+          class="tw-w-full tw-max-w-2xl animate-to-top lazy-load"
+        />
       </div>
     </div>
   </section>

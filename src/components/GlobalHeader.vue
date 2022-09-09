@@ -37,11 +37,10 @@
               </div>
             </div>
           </li>
-          <li class="tw-inline-block">
+          <li class="tw-inline-block md:tw-hidden">
             <button
               v-bind:class="{
                 'is-active': currentSection === 'contact-us',
-                'md:tw-hidden': true,
               }"
               class="btn-default btn-toggle-menu lazy-effect"
               @click="isShowMenu = true"
@@ -193,7 +192,10 @@
         background: $dark-page;
       }
       + li {
-        margin-left: 16px;
+        margin-left: 8px;
+        @media screen and (min-width: 1024px) {
+          margin-left: 16px;
+        }
       }
     }
     li > a {

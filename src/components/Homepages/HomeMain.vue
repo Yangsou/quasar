@@ -201,50 +201,6 @@
     }
   }
 }
-
-@mixin animate-Y($to-top: false) {
-  opacity: 0;
-  @if $to-top {
-    transform: translateY(50px);
-  } @else {
-    transform: translateY(-50px);
-  }
-  transition: all 450ms linear;
-  &.lazy-load.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@mixin animate-X($to-left: false) {
-  opacity: 0;
-  @if $to-left {
-    transform: translateX(-50px);
-  } @else {
-    transform: translateX(50px);
-  }
-  transition: all 550ms linear;
-  &.lazy-load.active {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-.animate-to-top {
-  @for $i from 1 through 3 {
-    &:nth-child(#{$i}),
-    &:nth-child(#{$i + 3}),
-    &:nth-child(#{$i + 6}),
-    &:nth-child(#{$i}) {
-      transition-delay: $i * 200ms;
-    }
-  }
-  @include animate-Y(true);
-}
-.animate-to-left {
-  @include animate-X();
-}
-.animate-to-right {
-  @include animate-X(true);
-}
 </style>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
