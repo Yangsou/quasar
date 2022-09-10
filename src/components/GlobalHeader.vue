@@ -14,7 +14,7 @@
             }"
             v-for="item in links"
             :key="item.key"
-            @click="moveToSection(item.key)"
+            @click="moveToSection(item)"
           >
             <router-link
               v-if="item.path"
@@ -338,21 +338,35 @@
 </style>
 <script lang="ts">
 import { doScrolling } from 'src/shared/functional';
-import { defineComponent, onMounted, onUnmounted, ref } from 'vue';
+import { defineComponent, nextTick, onMounted, onUnmounted, ref } from 'vue';
 import { HeaderLinkKey } from './models';
+import { useRoute, useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'GlobalHeader',
   setup() {
     const currentSection = ref<HeaderLinkKey>(HeaderLinkKey.Homepage);
     const isShowMenu = ref(false);
+    const router = useRouter();
+    const route = useRoute();
 
-    const moveToSection = (key: HeaderLinkKey) => {
-      currentSection.value = key;
-      const el = document.getElementById(key);
-      if (el) {
-        doScrolling(el, 500, 100);
+    const moveToSection = async ({
+      key,
+      path,
+    }: {
+      key: HeaderLinkKey;
+      path: string;
+    }) => {
+      if (!path && route.path !== '/') {
+        await router.push('/');
       }
+      nextTick(() => {
+        currentSection.value = key;
+        const el = document.getElementById(key);
+        if (el) {
+          doScrolling(el, 500, 100);
+        }
+      });
     };
     function activeHeaderWhenScroll() {
       var scrollTop =
@@ -399,7 +413,7 @@ export default defineComponent({
         },
         {
           label: 'Lion Sharing',
-          key: HeaderLinkKey.Service,
+          key: HeaderLinkKey.Sharing,
           path: '/lion-sharing',
         },
         { label: 'Service', key: HeaderLinkKey.Service },

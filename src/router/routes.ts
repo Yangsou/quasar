@@ -11,7 +11,7 @@ const routes: RouteRecordRaw[] = [
         path: 'lion-sharing/:postId',
         component: () => import('pages/PostDetail.vue'),
       },
-      { path: 'about-us', component: () => import('pages/AboutUs.vue') },
+      { path: 'lion-vision', component: () => import('pages/AboutUs.vue') },
       { path: 'lion-people', component: () => import('pages/People.vue') },
     ],
   },

@@ -11,7 +11,7 @@
       <div class="tw-flex tw-flex-wrap md:tw-flex-nowrap">
         <div class="tw-w-full md:tw-w-1/2 tw-text-right">
           <img
-            src="../assets/imgs/Creative.png"
+            src="../assets/imgs/lion-people-mockup.png"
             class="tw-max-w-md tw-w-full"
           />
         </div>

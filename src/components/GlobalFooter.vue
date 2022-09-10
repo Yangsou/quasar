@@ -154,12 +154,11 @@ export default defineComponent({
       { url: '/', label: 'Homepage' },
       { url: '/lion-people', label: 'Lion People' },
       { url: '/', label: 'Service' },
-      { url: '/', label: 'Lion Vision' },
+      { url: '/lion-vision', label: 'Lion Vision' },
       { url: '/', label: 'Process' },
       { url: '/lion-sharing', label: 'Lion Sharing' },
       { url: '/', label: 'Partner' },
       { url: '/', label: 'Contact Us' },
-      { url: '/about-us', label: 'About Us' },
     ]);
     const loading = ref(false);
     const form = ref({

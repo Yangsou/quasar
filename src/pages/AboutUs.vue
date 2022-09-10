@@ -27,9 +27,15 @@
         </div>
         <div class="tw-w-full md:tw-w-1/2 tw-px-4">
           <div class="about-us__group-imgs">
-            <img src="../assets/imgs/car.jpeg" class="img is-active" />
-            <img src="../assets/imgs/car.jpeg" class="img" />
-            <img src="../assets/imgs/car.jpeg" class="img" />
+            <img
+              v-for="item in slides"
+              :key="item"
+              :src="'/imgs/' + item"
+              :data-src="'/imgs/' + item"
+              class="img lazy tw-transition-all"
+            />
+            <!-- <img src="../assets/imgs/meeting.jpeg" class="img lazy" />
+            <img src="../assets/imgs/lion-people.jpeg" class="img lazy" /> -->
           </div>
         </div>
       </div>
@@ -160,6 +166,9 @@
       transform-origin: center;
       transform-style: preserve-3d;
       z-index: 3;
+      // object-fit: contain;
+      object-fit: cover;
+      object-position: top;
       &:nth-child(2) {
         z-index: 2;
         // opacity: 0.8;
@@ -177,7 +186,7 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, onUnmounted, ref } from 'vue';
 import { useGlobalStore } from 'src/stores/global-store';
 
 export default defineComponent({
@@ -187,8 +196,29 @@ export default defineComponent({
     globalStore.footer.title = '';
   },
   setup() {
+    const intervalSlide = ref();
+    const slideIndex = ref(1);
+    const slides = ref(['service-brand.jpeg', 'car.jpeg', 'service-pr.jpeg']);
+    const interval = () => {
+      intervalSlide.value = setInterval(() => {
+        // slideIndex.value =
+        //   slideIndex.value + 1 > slides.value.length - 1
+        //     ? 0
+        //     : slideIndex.value + 1;
+        const firstItem = slides.value[0];
+        slides.value = [
+          ...slides.value.slice(1, slides.value.length),
+          firstItem,
+        ];
+      }, 5000);
+    };
+    onMounted(() => {
+      interval();
+    });
+    onUnmounted(() => (intervalSlide.value = null));
     return {
-      //
+      slides: slides,
+      slideIndex,
     };
   },
 });

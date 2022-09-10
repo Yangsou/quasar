@@ -6,5 +6,6 @@ export enum HeaderLinkKey {
   ContactUs = 'contact-us',
   AboutUs = 'about-us',
   People = 'people',
-  Vision = 'vision'
+  Vision = 'vision',
+  Sharing = 'sharing'
 }
