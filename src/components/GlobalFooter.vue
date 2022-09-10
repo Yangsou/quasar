@@ -76,6 +76,7 @@
         <div class="tw-w-full md:tw-w-1/3 tw-px-4">
           <q-form
             class="tw-bg-white tw-px-4 tw-py-8 tw-rounded-lg"
+            ref="contactForm"
             @submit="handleSendEmail"
           >
             <p class="tw-text-xl tw-uppercase tw-font-bold">Get in touch</p>
@@ -141,13 +142,14 @@
 import { defineComponent, ref, computed } from 'vue';
 import { useGlobalStore } from 'src/stores/global-store';
 import { emailJsAPI } from 'src/shared/emailjs';
-import { useQuasar } from 'quasar';
+import { QForm, useQuasar } from 'quasar';
 
 export default defineComponent({
   name: 'GlobalFooter',
   setup() {
     const globalStore = useGlobalStore();
     const $q = useQuasar();
+    const contactForm = ref<QForm | null>(null);
     const links = ref([
       { url: '/', label: 'Homepage' },
       { url: '/lion-people', label: 'Lion People' },
@@ -183,6 +185,7 @@ export default defineComponent({
             type: 'positive',
             message: 'Send email successful!',
           });
+          contactForm.value?.resetValidation();
         })
         .catch((error) => {
           $q.notify({
@@ -200,6 +203,7 @@ export default defineComponent({
       links,
       form,
       loading,
+      contactForm,
       handleSendEmail,
     };
   },

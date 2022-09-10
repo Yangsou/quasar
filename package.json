@@ -14,6 +14,7 @@
     "build": "cd dist/ssr && npm i",
     "build:pwa": "quasar build -m pwa",
     "build:ssr": "quasar build -m ssr",
+    "build:prod:ssr": "ENV=production quasar build -m ssr",
     "start": "cd dist/ssr && node index.js"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
     "axios": "^0.21.1",
     "contentful": "^9.1.32",
     "core-js": "^3.6.5",
+    "dotenv": "^16.0.2",
     "lodash": "^4.17.21",
     "marked": "^4.0.18",
     "pinia": "^2.0.21",

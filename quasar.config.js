@@ -11,6 +11,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 const { configure } = require('quasar/wrappers');
+const getEnvs = require('./env.config');
 
 module.exports = configure(function (ctx) {
   return {
@@ -65,6 +66,7 @@ module.exports = configure(function (ctx) {
       // preloadChunks: true,
       // showProgress: false,
       // gzip: true,
+      env: getEnvs(),
       // analyze: true,
 
       // Options below are automatically set depending on the env, set them if you want to override
