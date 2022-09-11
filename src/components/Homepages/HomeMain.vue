@@ -21,8 +21,7 @@
           />
           <p class="text-white tw-text-3xl md:tw-text-6xl">
             <span class="text-svn tw-text-9xl tw-opacity-25">Lion</span><br />
-            Build Your Brand <br />
-            Create Your Power
+            Build Your Brand<br />Create Your Power
           </p>
         </div>
       </q-carousel-slide>
@@ -37,11 +36,10 @@
           />
           <div>
             <p class="text-white text-svn tw-text-9xl tw-mb-0 tw-opacity-25">
-              Welcome
+              <span ref="titleWelcome" />
             </p>
             <p class="text-white tw-text-3xl md:tw-text-6xl">
-              We are 360° Integrated<br />
-              Advertising Agency
+              <span ref="title" />
             </p>
           </div>
         </div>
@@ -203,7 +201,7 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 import ServiceItem from './ServiceItem.vue';
 
 export default defineComponent({
@@ -255,9 +253,46 @@ export default defineComponent({
         img: 'service-rich-media.jpeg',
       },
     ]);
+    const title = ref<HTMLSpanElement>();
+    const titleWelcome = ref<HTMLSpanElement>();
+
+    onMounted(() => {
+      const dataTitle = 'We are 360° Integrated<br>Advertising Agency';
+      const dataTitleWelcome = 'Welcome';
+      let titleToArray = dataTitle.split('<br>');
+      titleToArray = [
+        ...titleToArray[0].split(''),
+        '<br>',
+        ...titleToArray[1].split(''),
+      ];
+      typingTitle(
+        dataTitleWelcome.split(''),
+        titleWelcome.value as HTMLSpanElement
+      );
+      setTimeout(() => {
+        typingTitle(titleToArray, title.value as HTMLSpanElement);
+      }, 1000);
+    });
+
+    const typingTitle = (titles: string[], target: HTMLSpanElement) => {
+      let i = 0;
+      let _title = '';
+      const _interval = setInterval(() => {
+        if (target) {
+          if (i >= titles.length - 1) {
+            clearInterval(_interval);
+          }
+          _title = _title + titles[i];
+          target.innerHTML = _title;
+          i++;
+        }
+      }, 100);
+    };
 
     return {
-      slide: ref('brand'),
+      title,
+      titleWelcome,
+      slide: ref('integrated'),
       services: services.value,
     };
   },

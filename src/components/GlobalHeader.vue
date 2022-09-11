@@ -87,7 +87,7 @@
             <router-link
               class="tw-text-3xl text-white-600 tw-no-underline"
               :active-class="'text-primary'"
-              to="/about-us"
+              to="#"
               >About Us</router-link
             >
             <div class="tw-pl-6 tw-mt-2">
@@ -102,7 +102,7 @@
               <router-link
                 :active-class="'text-primary'"
                 class="tw-text-md text-white-600 tw-no-underline"
-                to="/lion-people"
+                to="/lion-vision"
                 >Lion Vision</router-link
               >
             </div>
@@ -398,6 +398,7 @@ export default defineComponent({
         {
           label: 'About Us',
           key: HeaderLinkKey.AboutUs,
+          path: '#',
           children: [
             {
               label: 'Lion People',
