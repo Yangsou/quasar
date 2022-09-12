@@ -10,10 +10,7 @@
     <div class="container tw-py-20">
       <div class="tw-flex tw-flex-wrap md:tw-flex-nowrap">
         <div class="tw-w-full md:tw-w-1/2 tw-text-right">
-          <img
-            src="../assets/imgs/lion-people-mockup.png"
-            class="tw-max-w-md tw-w-full"
-          />
+          <img src="/imgs/LIO_0917_edit.jpeg" class="tw-max-w-md tw-w-full" />
         </div>
         <div class="tw-w-full md:tw-w-1/2">
           <div class="about-us__card tw-py-4 tw-px-6">
@@ -34,19 +31,19 @@
       <div class="tw-relative people__content tw-py-16">
         <div class="xl:tw--ml-8">
           <div
-            v-for="item in 4"
-            v-bind:key="item"
+            v-for="item in teams"
+            v-bind:key="item.title"
             class="people__item tw-block md:tw-inline-block tw-mx-auto md:tw-mx-0"
           >
             <p class="text-white md:tw-pl-16 tw-mb-2 tw-uppercase">
-              The designer
+              {{ item.title }}
             </p>
             <div
               class="people__guy md:tw-w-52 md:tw-h-52 lg:tw-w-64 lg:tw-h-64 xl:tw-w-72 xl:tw-h-72"
               data-title="Ralph Salazar"
             >
               <img
-                src="../assets/imgs/lion-people.jpeg"
+                :src="item.url"
                 class="tw-w-full tw-h-full tw-relative tw-object-cover tw-object-top"
               />
             </div>
@@ -67,7 +64,7 @@
     height: 70vh;
     position: relative;
     background: {
-      image: url(../assets/imgs/meeting.png);
+      image: url(/imgs/LIO_1097.jpeg);
       position: center;
       size: cover;
     }
@@ -146,6 +143,21 @@
         margin-left: 32px;
       }
     }
+    &:nth-child(2) {
+      .people__guy::before {
+        background-color: #fb0054;
+      }
+    }
+    &:nth-child(3) {
+      .people__guy::before {
+        background-color: #0067fb;
+      }
+    }
+    &:nth-child(4) {
+      .people__guy::before {
+        background-color: #8bf67f;
+      }
+    }
   }
   &__guy {
     position: relative;
@@ -182,7 +194,7 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { useGlobalStore } from 'src/stores/global-store';
 
 export default defineComponent({
@@ -192,8 +204,14 @@ export default defineComponent({
     globalStore.footer.title = 'A true king’s power is his \ncompassion';
   },
   setup() {
+    const teams = ref([
+      { url: '/imgs/team_account.png', title: 'ACCOUNT' },
+      { url: '/imgs/team_planner.png', title: 'PLANNER' },
+      { url: '/imgs/team_designer.png', title: 'DESIGNER' },
+      { url: '/imgs/team_copywriter.png', title: 'COPYWRITER' },
+    ]);
     return {
-      //
+      teams,
     };
   },
 });

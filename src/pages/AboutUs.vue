@@ -97,7 +97,7 @@
       </div>
       <div class="tw-text-center tw-px-2">
         <img
-          src="../assets/imgs/meeting.png"
+          src="/imgs/LIO_1046.jpeg"
           class="tw-w-full tw-max-w-2xl animate-to-top lazy-load"
         />
       </div>
@@ -198,13 +198,13 @@ export default defineComponent({
   setup() {
     const intervalSlide = ref();
     const slideIndex = ref(1);
-    const slides = ref(['service-brand.jpeg', 'car.jpeg', 'service-pr.jpeg']);
+    const slides = ref([
+      'LIO_1028.jpeg',
+      'lion-vision-2.jpeg',
+      'lion-vision-video-team.png',
+    ]);
     const interval = () => {
       intervalSlide.value = setInterval(() => {
-        // slideIndex.value =
-        //   slideIndex.value + 1 > slides.value.length - 1
-        //     ? 0
-        //     : slideIndex.value + 1;
         const firstItem = slides.value[0];
         slides.value = [
           ...slides.value.slice(1, slides.value.length),
