@@ -35,21 +35,21 @@
             v-bind:key="item.title"
             class="people__item tw-block md:tw-inline-block tw-mx-auto md:tw-mx-0"
           >
-            <p class="text-white md:tw-pl-16 tw-mb-2 tw-uppercase">
+            <!-- <p class="text-white md:tw-pl-16 tw-mb-2 tw-uppercase">
               {{ item.title }}
-            </p>
+            </p> -->
             <div
               class="people__guy md:tw-w-52 md:tw-h-52 lg:tw-w-64 lg:tw-h-64 xl:tw-w-72 xl:tw-h-72"
-              data-title="Ralph Salazar"
+              :data-title="item.title"
             >
               <img
                 :src="item.url"
                 class="tw-w-full tw-h-full tw-relative tw-object-cover tw-object-top"
               />
             </div>
-            <p class="text-white tw-font-bold tw-mt-2 tw-text-right">
+            <!-- <p class="text-white tw-font-bold tw-mt-2 tw-text-right">
               Ralph Salazar
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -137,7 +137,18 @@
     background: #292929;
   }
   &__item {
-    // display: inline-block;
+    &:nth-child(odd) {
+      .people__guy::after {
+        background: $primary;
+        color: #292929;
+      }
+    }
+    &:nth-child(even) {
+      .people__guy::after {
+        background: #fff;
+        color: #292929;
+      }
+    }
     + .people__item {
       @media screen and (min-width: 768px) {
         margin-left: 32px;
@@ -145,17 +156,20 @@
     }
     &:nth-child(2) {
       .people__guy::before {
-        background-color: #fb0054;
+        // background-color: #fb0054;
+        background-color: #fff;
       }
     }
     &:nth-child(3) {
       .people__guy::before {
-        background-color: #0067fb;
+        // background-color: #0067fb;
+        background-color: $primary;
       }
     }
     &:nth-child(4) {
       .people__guy::before {
-        background-color: #8bf67f;
+        // background-color: #8bf67f;
+        background-color: #ffffff;
       }
     }
   }

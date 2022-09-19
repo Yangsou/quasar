@@ -52,9 +52,14 @@
         <div class="tw-w-full md:tw-w-1/3 tw-px-4 tw-mb-6">
           <div class="tw-grid tw-grid-cols-2">
             <div v-for="item in links" :key="item.label" class="tw-mt-3">
-              <router-link :to="item.url" class="router-link">{{
-                item.label
-              }}</router-link>
+              <q-btn
+                type="text"
+                flat
+                @click="(e) => handleClickLinks(e, item)"
+                :to="item.url"
+                class="router-link tw-deep-"
+                >{{ item.label }}</q-btn
+              >
             </div>
           </div>
           <div class="divider tw-my-6" />
@@ -139,26 +144,31 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
+import { defineComponent, ref, computed, nextTick } from 'vue';
 import { useGlobalStore } from 'src/stores/global-store';
 import { emailJsAPI } from 'src/shared/emailjs';
 import { QForm, useQuasar } from 'quasar';
+import { HeaderLinkKey } from './models';
+import { useRoute, useRouter } from 'vue-router';
+import { doScrolling } from 'src/shared/functional';
 
 export default defineComponent({
   name: 'GlobalFooter',
   setup() {
     const globalStore = useGlobalStore();
     const $q = useQuasar();
+    const route = useRoute();
+    const router = useRouter();
     const contactForm = ref<QForm | null>(null);
     const links = ref([
-      { url: '/', label: 'Homepage' },
+      { label: 'Homepage', key: HeaderLinkKey.Homepage },
       { url: '/lion-people', label: 'Lion People' },
-      { url: '/', label: 'Service' },
+      { label: 'Service', key: HeaderLinkKey.Service },
       { url: '/lion-vision', label: 'Lion Vision' },
-      { url: '/', label: 'Process' },
+      { label: 'Process', key: HeaderLinkKey.Process },
       { url: '/lion-sharing', label: 'Lion Sharing' },
-      { url: '/', label: 'Partner' },
-      { url: '/', label: 'Contact Us' },
+      { label: 'Partner', key: HeaderLinkKey.Partner },
+      { label: 'Contact Us', key: HeaderLinkKey.ContactUs },
     ]);
     const loading = ref(false);
     const form = ref({
@@ -197,6 +207,26 @@ export default defineComponent({
           loading.value = false;
         });
     };
+    const handleClickLinks = async (
+      e: Event,
+      item: { key: string; url: unknown }
+    ) => {
+      if (item.key) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!item.url && route.path !== '/') {
+          await router.push('/');
+        }
+        nextTick(() => {
+          // currentSection.value = key;
+          const el = document.getElementById(item.key);
+          if (el) {
+            doScrolling(el, 500, 100);
+          }
+        });
+        return;
+      }
+    };
     return {
       title: computed(() => globalStore.footer.title),
       links,
@@ -204,6 +234,7 @@ export default defineComponent({
       loading,
       contactForm,
       handleSendEmail,
+      handleClickLinks,
     };
   },
 });

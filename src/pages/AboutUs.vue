@@ -28,14 +28,12 @@
         <div class="tw-w-full md:tw-w-1/2 tw-px-4">
           <div class="about-us__group-imgs">
             <img
-              v-for="item in slides"
+              v-for="(item, index) in slides"
               :key="item"
               :src="'/imgs/' + item"
               :data-src="'/imgs/' + item"
-              class="img lazy tw-transition-all"
+              :class="`img lazy ${getClassByIndex(index)}`"
             />
-            <!-- <img src="../assets/imgs/meeting.jpeg" class="img lazy" />
-            <img src="../assets/imgs/lion-people.jpeg" class="img lazy" /> -->
           </div>
         </div>
       </div>
@@ -165,18 +163,21 @@
       width: 100%;
       transform-origin: center;
       transform-style: preserve-3d;
-      z-index: 3;
-      // object-fit: contain;
       object-fit: cover;
       object-position: top;
-      &:nth-child(2) {
-        z-index: 2;
+      transition: transform 350ms linear, filter 450ms linear;
+      &.tw-z-30 {
+        filter: none;
+        transform: none;
+      }
+      &.tw-z-20 {
+        // z-index: 2;
         // opacity: 0.8;
         filter: blur(2px);
         transform: scale(0.94) translateX(40px);
       }
-      &:nth-child(3) {
-        z-index: 1;
+      &.tw-z-10 {
+        // z-index: 1;
         // opacity: 0.8;
         filter: blur(4px);
         transform: scale(0.87) translateX(80px);
@@ -186,7 +187,7 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref } from 'vue';
+import { defineComponent, onMounted, onUnmounted, ref, watch } from 'vue';
 import { useGlobalStore } from 'src/stores/global-store';
 
 export default defineComponent({
@@ -197,7 +198,8 @@ export default defineComponent({
   },
   setup() {
     const intervalSlide = ref();
-    const slideIndex = ref(1);
+    const slidesIndex = ref([30, 20, 10]);
+    const slideIndex = ref(0);
     const slides = ref([
       'LIO_1028.jpeg',
       'lion-vision-2.jpeg',
@@ -205,20 +207,33 @@ export default defineComponent({
     ]);
     const interval = () => {
       intervalSlide.value = setInterval(() => {
-        const firstItem = slides.value[0];
-        slides.value = [
-          ...slides.value.slice(1, slides.value.length),
-          firstItem,
-        ];
-      }, 5000);
+        slideIndex.value = slideIndex.value + 1 > 2 ? 0 : slideIndex.value + 1;
+      }, 3000);
     };
+    const getClassByIndex = (index: number): string => {
+      return `tw-z-${slidesIndex.value[index]}`;
+    };
+    watch(
+      () => slideIndex.value,
+      (index: number) => {
+        if (index === 0) {
+          slidesIndex.value = [30, 20, 10];
+        }
+        if (index === 1) {
+          slidesIndex.value = [10, 30, 20];
+        }
+        if (index === 2) {
+          slidesIndex.value = [20, 10, 30];
+        }
+      }
+    );
     onMounted(() => {
       interval();
     });
     onUnmounted(() => (intervalSlide.value = null));
     return {
       slides: slides,
-      slideIndex,
+      getClassByIndex,
     };
   },
 });
