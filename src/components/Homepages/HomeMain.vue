@@ -2,7 +2,6 @@
   <section id="homepage">
     <q-carousel
       v-model="slide"
-      swipeable
       animated
       :padding="true"
       arrows
@@ -14,35 +13,23 @@
         name="brand"
         class="bg-secondary column no-wrap flex-center"
       >
-        <div class="items-center justify-center row">
-          <img
-            class="home-slide__logo-brand"
-            src="../../assets/imgs/Graphic@3x.png"
-          />
-          <p class="text-white tw-text-3xl md:tw-text-6xl">
-            <span class="text-svn tw-text-9xl tw-opacity-25">Lion</span><br />
-            Build Your Brand<br />Create Your Power
-          </p>
-        </div>
+        <home-slide-item
+          title="Welcome"
+          subTitle="We are 360° Integrated<br>Advertising Agency"
+          img="/imgs/Graphic@3x.png"
+          className="home-slide__logo-brand"
+        />
       </q-carousel-slide>
       <q-carousel-slide
         name="integrated"
         class="bg-primary column no-wrap flex-center tw-relative"
       >
-        <div class="items-center justify-center row">
-          <img
-            class="tw-absolute tw-h-full tw-w-auto tw-opacity-25 tw-top-0 tw--left-72"
-            src="../../assets/imgs/Logo@3x.png"
-          />
-          <div>
-            <p class="text-white text-svn tw-text-9xl tw-mb-0 tw-opacity-25">
-              <span ref="titleWelcome" />
-            </p>
-            <p class="text-white tw-text-3xl md:tw-text-6xl">
-              <span ref="title" />
-            </p>
-          </div>
-        </div>
+        <home-slide-item
+          title="Welcome"
+          subTitle="We are 360° Integrated<br>Advertising Agency"
+          img="/imgs/Logo@3x.png"
+          className="tw-absolute tw-h-full tw-w-auto tw-opacity-25 tw-top-0 tw--left-72"
+        />
       </q-carousel-slide>
     </q-carousel>
     <div class="bg-white-500">
@@ -201,8 +188,9 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onMounted, ref, watch } from 'vue';
 import ServiceItem from './ServiceItem.vue';
+import HomeSlideItem from './HomeSlideItem.vue';
 
 export default defineComponent({
   name: 'HomeMain',
@@ -255,23 +243,10 @@ export default defineComponent({
     ]);
     const title = ref<HTMLSpanElement>();
     const titleWelcome = ref<HTMLSpanElement>();
+    const slide = ref('integrated');
 
     onMounted(() => {
-      const dataTitle = 'We are 360° Integrated<br>Advertising Agency';
-      const dataTitleWelcome = 'Welcome';
-      let titleToArray = dataTitle.split('<br>');
-      titleToArray = [
-        ...titleToArray[0].split(''),
-        '<br>',
-        ...titleToArray[1].split(''),
-      ];
-      typingTitle(
-        dataTitleWelcome.split(''),
-        titleWelcome.value as HTMLSpanElement
-      );
-      setTimeout(() => {
-        typingTitle(titleToArray, title.value as HTMLSpanElement);
-      }, 1000);
+      animate();
     });
 
     const typingTitle = (titles: string[], target: HTMLSpanElement) => {
@@ -289,13 +264,39 @@ export default defineComponent({
       }, 100);
     };
 
+    const animate = () => {
+      const dataTitle = 'We are 360° Integrated<br>Advertising Agency';
+      const dataTitleWelcome = 'Welcome';
+      let titleToArray = dataTitle.split('<br>');
+      titleToArray = [
+        ...titleToArray[0].split(''),
+        '<br>',
+        ...titleToArray[1].split(''),
+      ];
+      setTimeout(() => {
+        typingTitle(
+          dataTitleWelcome.split(''),
+          titleWelcome.value as HTMLSpanElement
+        );
+      }, 100);
+      setTimeout(() => {
+        typingTitle(titleToArray, title.value as HTMLSpanElement);
+      }, 1100);
+    };
+    watch(
+      () => slide.value,
+      () => {
+        animate();
+      }
+    );
+
     return {
       title,
       titleWelcome,
-      slide: ref('integrated'),
+      slide,
       services: services.value,
     };
   },
-  components: { ServiceItem },
+  components: { ServiceItem, HomeSlideItem },
 });
 </script>
