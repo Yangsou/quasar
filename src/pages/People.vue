@@ -3,7 +3,7 @@
     <div class="about-us__main">
       <div class="container tw-h-full tw-flex tw-justify-end tw-items-center">
         <div class="text-white tw-rounded-lg about-us__title text-bold text-h4">
-          We Go Beyond The,<br />Ordinary
+          We Go Beyond The<br />Ordinary
         </div>
       </div>
     </div>
@@ -219,10 +219,10 @@ export default defineComponent({
   },
   setup() {
     const teams = ref([
-      { url: '/imgs/team_account.png', title: 'ACCOUNT' },
-      { url: '/imgs/team_planner.png', title: 'PLANNER' },
-      { url: '/imgs/team_designer.png', title: 'DESIGNER' },
-      { url: '/imgs/team_copywriter.png', title: 'COPYWRITER' },
+      { url: '/imgs/team_account.jpg', title: 'ACCOUNT' },
+      { url: '/imgs/team_planner.jpg', title: 'PLANNER' },
+      { url: '/imgs/team_designer.jpg', title: 'DESIGNER' },
+      { url: '/imgs/team_copywriter.jpg', title: 'COPYWRITER' },
     ]);
     return {
       teams,

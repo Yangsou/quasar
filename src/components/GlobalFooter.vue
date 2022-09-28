@@ -221,7 +221,7 @@ export default defineComponent({
           // currentSection.value = key;
           const el = document.getElementById(item.key);
           if (el) {
-            doScrolling(el, 500, 100);
+            doScrolling(el, 500, -60);
           }
         });
         return;

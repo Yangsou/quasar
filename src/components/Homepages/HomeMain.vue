@@ -14,8 +14,8 @@
         class="bg-secondary column no-wrap flex-center"
       >
         <home-slide-item
-          title="Welcome"
-          subTitle="We are 360° Integrated<br>Advertising Agency"
+          title="Lion"
+          subTitle="Build Your Brand<br>Create You Power"
           img="/imgs/Graphic@3x.png"
           className="home-slide__logo-brand"
         />
@@ -160,6 +160,7 @@
     &__logo-brand {
       width: 140px;
       transition: transform 5s linear;
+      margin-right: 32px;
       &:hover {
         transform: scale3d(1.2, 1.2, 1.2);
       }

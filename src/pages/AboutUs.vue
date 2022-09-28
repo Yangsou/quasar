@@ -30,8 +30,8 @@
             <img
               v-for="(item, index) in slides"
               :key="item"
-              :src="'/imgs/' + item"
               :data-src="'/imgs/' + item"
+              :src="'/imgs/' + item"
               :class="`img lazy ${getClassByIndex(index)}`"
             />
           </div>
@@ -201,7 +201,7 @@ export default defineComponent({
     const slidesIndex = ref([30, 20, 10]);
     const slideIndex = ref(0);
     const slides = ref([
-      'LIO_1028.jpeg',
+      'LIO_1028.jpg',
       'lion-vision-2.jpeg',
       'lion-vision-video-team.png',
     ]);

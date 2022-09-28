@@ -55,7 +55,7 @@ export default defineComponent({
     height: 70vh;
     position: relative;
     background: {
-      image: url(../assets/imgs/meeting.png);
+      image: url(/imgs/mockup-fanpage-mobile.jpg);
       position: center;
       size: cover;
     }
