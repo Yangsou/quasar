@@ -27,7 +27,7 @@
             />
             <p class="relative text-primary text-bold tw-mb-0">Head Office</p>
             <p class="text-white tw-max-w-xs">
-              No.A2, 793/43 Tran Xuan Son, Tan Hung Ward, District 7, HCMC
+              No.A2, 793/43 Tran Xuan Soan, Tan Hung Ward, District 7, HCMC
             </p>
           </div>
           <div class="tw-pl-8 tw-mt-4">
@@ -65,18 +65,22 @@
           <div class="divider tw-my-6" />
 
           <p class="text-white">Follow Us On</p>
-          <router-link to="#">
+          <a target="_blank" href="https://www.facebook.com/lioncomms">
             <img
               src="../assets/imgs/Social/facebook-app-symbol@3x.png"
               class="tw-w-6 tw-h-6"
             />
-          </router-link>
-          <router-link to="#" class="tw-ml-2">
+          </a>
+          <a
+            href="https://www.linkedin.com/company/lion-communicationsvn"
+            class="tw-ml-2"
+            target="_blank"
+          >
             <img
               src="../assets/imgs/Social/linkedin@3x.png"
               class="tw-w-6 tw-h-6"
             />
-          </router-link>
+          </a>
         </div>
         <div class="tw-w-full md:tw-w-1/3 tw-px-4">
           <q-form

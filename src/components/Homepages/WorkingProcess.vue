@@ -1,7 +1,7 @@
 <template>
   <div id="process" class="working-process">
     <div
-      class="container tw-flex tw-items-center tw-flex-wrap lg:tw-flex-nowrap tw-py-32"
+      class="container tw-flex tw-items-center tw-flex-wrap lg:tw-flex-nowrap tw-py-16"
     >
       <div
         class="xl:tw-w-3/5 md:tw-w-full lg:tw-w-1/2 tw-justify-center tw-flex tw-items-center tw-flex-col"

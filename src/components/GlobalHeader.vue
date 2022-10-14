@@ -95,6 +95,7 @@
                 class="tw-text-md text-white-600 tw-no-underline"
                 :active-class="'text-primary'"
                 to="/lion-people"
+                @click="isShowMenu = false"
                 >Lion People</router-link
               >
             </div>
@@ -103,6 +104,7 @@
                 :active-class="'text-primary'"
                 class="tw-text-md text-white-600 tw-no-underline"
                 to="/lion-vision"
+                @click="isShowMenu = false"
                 >Lion Vision</router-link
               >
             </div>

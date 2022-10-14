@@ -15,7 +15,7 @@
       >
         <home-slide-item
           title="Lion"
-          subTitle="Build Your Brand<br>Create You Power"
+          subTitle="Build Your Brand<br>Create Your Power"
           img="/imgs/Graphic@3x.png"
           className="home-slide__logo-brand"
         />
@@ -44,7 +44,9 @@
         </p>
       </div>
     </div>
-    <div class="container bg-light branding tw-mt-20 tw-pb-20">
+    <div
+      class="container bg-light branding tw-mt-10 md:tw-mt-20 tw-pb-10 md:tw-pb-20"
+    >
       <div
         class="items-center justify-between row tw-flex-wrap md:tw-flex-nowrap tw-px-4"
       >
@@ -64,7 +66,9 @@
           </div>
         </div>
         <div class="md:tw-w-1/2 animate-to-left lazy-load">
-          <p class="tw-text-6xl text-svn text-primary tw-mb-0">Branding</p>
+          <p class="tw-text-6xl text-svn text-primary tw-mb-0 tw-mt-2">
+            Branding
+          </p>
           <p class="text-dark tw-max-w-md">
             Our job is to tell your brand story, create an authentic and
             memorable identity, and turn them into an interactive communications
@@ -132,7 +136,7 @@
     </div>
 
     <div class="bg-white-500" id="service">
-      <div class="container tw-py-28">
+      <div class="container tw-py-16">
         <div class="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-4">
           <div
             v-for="(item, index) in services"
@@ -155,6 +159,9 @@
     max-width: 490px;
     margin: auto;
     padding: 80px 0;
+    @media screen and (max-width: 640px) {
+      padding: 40px 0;
+    }
   }
   &-slide {
     &__logo-brand {
