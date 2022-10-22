@@ -17,7 +17,7 @@
           title="Lion"
           subTitle="Build Your Brand<br>Create Your Power"
           img="/imgs/Graphic@3x.png"
-          className="home-slide__logo-brand"
+          className="home-slide__logo-brand tw-absolute tw-left-0 tw-transform tw--translate-x-1/2 sm:tw-relative sm:tw-transform-none"
         />
       </q-carousel-slide>
       <q-carousel-slide
@@ -28,7 +28,7 @@
           title="Welcome"
           subTitle="We are 360° Integrated<br>Advertising Agency"
           img="/imgs/Logo@3x.png"
-          className="tw-absolute tw-h-full tw-w-auto tw-opacity-25 tw-top-0 tw--left-72"
+          className="tw-absolute tw-top-1/2 tw-left-0 tw-transform tw--translate-x-1/2 tw--translate-y-1/2 sm:tw-h-full sm:tw-w-auto tw-opacity-25 sm:tw-top-0 sm:tw--left-72"
         />
       </q-carousel-slide>
     </q-carousel>

@@ -4,7 +4,9 @@
       <img :class="className" :src="img" />
     </div>
     <div>
-      <p class="text-white text-svn tw-text-9xl tw-mb-0 tw-opacity-25">
+      <p
+        class="text-white text-svn tw-text-8xl sm:tw-text-9xl tw-mb-0 tw-opacity-25"
+      >
         <span ref="titleRef" />
       </p>
       <p class="text-white tw-text-3xl md:tw-text-6xl">
