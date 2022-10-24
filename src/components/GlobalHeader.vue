@@ -80,6 +80,7 @@
               class="tw-text-3xl text-white-600 tw-no-underline"
               :exact-active-class="'text-primary'"
               to="/"
+              @click="isShowMenu = false"
               >Homepage</router-link
             >
           </div>
@@ -114,6 +115,7 @@
               class="tw-text-3xl text-white-600 tw-no-underline"
               :active-class="'text-primary'"
               to="/lion-sharing"
+              @click="isShowMenu = false"
               >Lion Sharing</router-link
             >
           </div>
