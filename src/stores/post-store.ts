@@ -49,7 +49,7 @@ export const usePostStore = defineStore('post', {
     async getEntries() {
       try {
         this.entries = await contentfulAPI.getEntries() as EntryInterface;
-        // console.log('entries', entries);
+        // console.log('entries', this.entries.items);
         // this.entries = entries as EntryInterface;
       } catch (error) {
         console.log(error);
