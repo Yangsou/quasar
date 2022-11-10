@@ -48,9 +48,8 @@ export const usePostStore = defineStore('post', {
   actions: {
     async getEntries() {
       try {
-        this.entries = await contentfulAPI.getEntries() as EntryInterface;
-        // console.log('entries', this.entries.items);
-        // this.entries = entries as EntryInterface;
+        const _entries = await contentfulAPI.getEntries() as EntryInterface;
+        this.entries = _entries;
       } catch (error) {
         console.log(error);
       }
@@ -80,7 +79,7 @@ export const usePostStore = defineStore('post', {
       return (id: string) => state.entries.items.find((e) => e.sys.id === id);
     },
     interestingPosts(state: PostState) {
-      return state.entries.items.slice(0, 3);
+      return (id: string) => state.entries.items?.filter((e) => e.sys?.id !== id).slice(0, 3);
     },
   },
 });

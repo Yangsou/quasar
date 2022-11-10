@@ -95,7 +95,7 @@
       </div>
       <div class="tw-text-center tw-px-2">
         <img
-          src="/imgs/LIO_1046.jpeg"
+          src="/imgs/LIO_1046.jpg"
           class="tw-w-full tw-max-w-2xl animate-to-top lazy-load"
         />
       </div>

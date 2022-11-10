@@ -5,10 +5,12 @@
         autoplay
         loop
         class="post-detail__hero-img tw-object-cover"
-        v-if="entry.fields.heroImage?.fields?.file?.contentType === 'video/mp4'"
+        v-if="
+          entry?.fields.heroImage?.fields?.file?.contentType === 'video/mp4'
+        "
       >
         <source
-          :src="`https:${entry.fields.heroImage?.fields?.file.url}`"
+          :src="`https:${entry?.fields.heroImage?.fields?.file.url}`"
           type="video/mp4"
         />
       </video>
@@ -86,9 +88,12 @@ export default defineComponent({
   name: 'post-detail',
   preFetch({ currentRoute }: { currentRoute: RouteLocationNormalizedLoaded }) {
     const store = usePostStore();
-    return store.getEntryById(currentRoute.params.postId as string);
+
+    return Promise.all([
+      store.getEntries(),
+      store.getEntryById(currentRoute.params.postId as string),
+    ]);
   },
-  // mixins: [createMetaMixin(metaData)],
   setup() {
     const store = usePostStore();
     const route = useRoute();
@@ -112,7 +117,7 @@ export default defineComponent({
       get,
       postId,
       markdownToHtml,
-      posts: computed(() => store.interestingPosts),
+      posts: computed(() => store.interestingPosts(postId.value)),
       publishTime: formatTimeDuration(
         entry.value?.fields.publishDate as string
       ),
