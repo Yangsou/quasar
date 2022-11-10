@@ -110,6 +110,30 @@ export default defineComponent({
           name: 'description',
           content: entry.value?.fields.description,
         },
+        'og:image': {
+          name: 'og:image',
+          content: entry.value?.fields.heroImage?.fields?.file?.url,
+        },
+        'og:title': {
+          name: 'og:title',
+          content: entry.value?.fields?.title,
+        },
+        'og:description': {
+          name: 'og:description',
+          content: entry.value?.fields?.description,
+        },
+        'twitter:image': {
+          name: 'twitter:image',
+          content: entry.value?.fields.heroImage?.fields?.file?.url,
+        },
+        'twitter:title': {
+          name: 'twitter:title',
+          content: entry.value?.fields?.title,
+        },
+        'twitter:description': {
+          name: 'twitter:description',
+          content: entry.value?.fields?.description,
+        },
       },
     });
     return {
