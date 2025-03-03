@@ -14,7 +14,7 @@
     "build": "cd dist/ssr && npm i",
     "build:pwa": "quasar build -m pwa",
     "build:ssr": "quasar build -m ssr",
-    "build:prod:ssr": "ENV=production quasar build -m ssr",
+    "build:prod:ssr": "set ENV=production& quasar build -m ssr",
     "start": "cd dist/ssr && node index.js"
   },
   "dependencies": {

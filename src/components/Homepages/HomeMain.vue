@@ -33,15 +33,30 @@
       </q-carousel-slide>
     </q-carousel>
     <div class="bg-white-500">
-      <div class="home__wrap-md">
-        <p class="text-center text-h2 text-svn">Who We Are?</p>
-        <p class="text-dark tw-px-4">
-          We are 360° integrated advertising agency providing a full-site of
-          marketing solutions including branding strategy, creative collateral
-          design, digital content, online & offline communications. Whether
-          you're rebranding, launching a new brand or need design work, we can
-          help you from strategy to implementation.
-        </p>
+      <div class="container lg:tw-flex lg:tw-space-x-2 tw-py-4">
+        <div class="home__wrap-md">
+          <p class="text-center text-h2 text-svn">Who We Are?</p>
+          <p class="text-dark tw-px-4 tw-text-left">
+            We are 360° integrated advertising agency providing a full-site of
+            marketing solutions including branding strategy, creative collateral
+            design, digital content, online & offline communications. Whether
+            you're rebranding, launching a new brand or need design work, we can
+            help you from strategy to implementation.
+          </p>
+        </div>
+        <div class="lg:text-right lg:tw-w-1/2 tw-flex tw-items-center">
+          <div class="tw-relative tw-w-full tw-h-56 md:tw-h-80">
+            <iframe
+              class="tw-absolute tw-w-full tw-h-full"
+              src="https://www.youtube.com/embed/PP7HaAXZA5w"
+              title="Video Giới thiệu Doanh nghiệp - We are Lion Comms"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
     <div
